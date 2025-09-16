@@ -13,9 +13,13 @@ struct MenuView: View {
     let viewModel: ViewModel = ViewModel()
     
     var body: some View {
-        List {
-            // À completer
-        }
+//        List(viewModel.mainCourseArray, id: \.name) { mainCourse in
+//            VStack(alignment: .leading) {
+//                Text(mainCourse.name)
+//                Text(mainCourse.description)
+//                Text(mainCourse.allergens)
+//            }
+//        }
     }
 }
 
