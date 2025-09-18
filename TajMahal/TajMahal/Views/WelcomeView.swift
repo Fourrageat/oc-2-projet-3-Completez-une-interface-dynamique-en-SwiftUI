@@ -10,7 +10,7 @@ struct WelcomeView: View {
                         .resizable()
                         .cornerRadius(16)
 
-                    HStack(alignment: .top) {
+                    HStack() {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("Restaurant Indien")
                                 .foregroundStyle(.secondary)
