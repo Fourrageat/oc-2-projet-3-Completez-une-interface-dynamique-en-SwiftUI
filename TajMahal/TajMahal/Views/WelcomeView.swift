@@ -1,6 +1,7 @@
 import SwiftUI
 
 var grayColor: Color { Color(red: 102/255, green: 102/255, blue: 102/255) }
+var redColor: Color { Color(red: 207/255, green: 47/255, blue: 47/255) }
 
 struct WelcomeView: View {
     var body: some View {
@@ -12,7 +13,7 @@ struct WelcomeView: View {
                         .cornerRadius(10)
 
                     HStack() {
-                        VStack(alignment: .leading, spacing: 2) {
+                        VStack(alignment: .leading, spacing: 0) {
                             Text("Restaurant Indien")
                                 .foregroundStyle(grayColor)
                                 .font(.system(size: 12))
@@ -21,6 +22,7 @@ struct WelcomeView: View {
                                 .foregroundStyle(.primary)
                                 .fontWeight(.bold)
                                 .font(.custom("PlusJakartaSans", size: 18))
+                                .padding(.top, 2)
                         }
                         Spacer()
                         Image("Logo1")
@@ -61,8 +63,16 @@ struct WelcomeView: View {
             NavigationLink {
                 MenuView()
             } label: {
-                Text("Menu")
+                Text("Accéder au menu")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(redColor)
+                    .cornerRadius(10)
             }
+            .padding(.horizontal, 20)
+            .padding(.top, 18)
         }
     }
 }
@@ -109,4 +119,3 @@ private func Symbol(_ name: String) -> some View {
 #Preview {
     WelcomeView()
 }
-
