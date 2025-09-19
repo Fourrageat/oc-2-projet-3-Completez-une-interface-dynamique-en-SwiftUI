@@ -64,10 +64,11 @@ struct WelcomeView: View {
                 MenuView()
             } label: {
                 Text("Accéder au menu")
+                    .font(.system(size: 16).bold())
                     .font(.headline)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
+                    .frame(height: 40)
                     .background(redColor)
                     .cornerRadius(10)
             }
