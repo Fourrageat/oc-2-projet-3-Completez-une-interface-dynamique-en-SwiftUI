@@ -1,7 +1,8 @@
 import SwiftUI
 
-struct WelcomeView: View {
+var grayColor: Color { Color(red: 102/255, green: 102/255, blue: 102/255) }
 
+struct WelcomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
@@ -13,7 +14,7 @@ struct WelcomeView: View {
                     HStack() {
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Restaurant Indien")
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(grayColor)
                                 .font(.system(size: 12))
                             
                             Text("Taj Mahal")
@@ -72,14 +73,14 @@ struct KeyValueRow: View {
     let value: String
 
     var body: some View {
-        HStack(alignment: .center, spacing: 11) {
+        HStack(alignment: .center, spacing: 10) {
             Symbol(icon)
             Text(title)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(grayColor)
                 .font(.system(size: 12))
             Spacer()
             Text(value)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(grayColor)
                 .multilineTextAlignment(.trailing)
                 .font(.system(size: 12))
         }
@@ -91,10 +92,10 @@ struct InfoRow: View {
     let text: String
 
     var body: some View {
-        HStack(alignment: .center, spacing: 11) {
+        HStack(alignment: .center, spacing: 10) {
             Symbol(icon)
             Text(text)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(grayColor)
                 .font(.system(size: 12))
             Spacer(minLength: 0)
         }
@@ -103,8 +104,6 @@ struct InfoRow: View {
 
 private func Symbol(_ name: String) -> some View {
     Image(name)
-        .foregroundStyle(.secondary)
-        .font(.system(size: 12))
 }
 
 #Preview {
