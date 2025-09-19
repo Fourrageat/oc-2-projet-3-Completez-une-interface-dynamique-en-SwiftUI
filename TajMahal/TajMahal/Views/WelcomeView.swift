@@ -28,25 +28,25 @@ struct WelcomeView: View {
                     
                     VStack(spacing: 14) {
                         KeyValueRow(
-                            icon: "clock",
+                            icon: "Horaire",
                             title: "Mardi",
                             value: "11h30 – 14h30 • 18h30 – 22h00"
                         )
                         KeyValueRow(
-                            icon: "",
+                            icon: "Marmite",
                             title: "Type de Service",
                             value: "À emporter"
                         )
                         InfoRow(
-                            icon: "",
+                            icon: "Localisation",
                             text: "12 Avenue de la Brique – 75010 Paris"
                         )
                         InfoRow(
-                            icon: "globe",
+                            icon: "Site",
                             text: "www.tajmahal.fr",
                         )
                         InfoRow(
-                            icon: "phone",
+                            icon: "Téléphone",
                             text: "06 12 34 56 78",
                         )
                     }
@@ -72,7 +72,7 @@ struct KeyValueRow: View {
     let value: String
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 11) {
+        HStack(alignment: .center, spacing: 11) {
             Symbol(icon)
             Text(title)
                 .foregroundStyle(.secondary)
@@ -91,7 +91,7 @@ struct InfoRow: View {
     let text: String
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 11) {
+        HStack(alignment: .center, spacing: 11) {
             Symbol(icon)
             Text(text)
                 .foregroundStyle(.secondary)
@@ -102,7 +102,7 @@ struct InfoRow: View {
 }
 
 private func Symbol(_ name: String) -> some View {
-    Image(systemName: name)
+    Image(name)
         .foregroundStyle(.secondary)
         .font(.system(size: 12))
 }
@@ -110,3 +110,4 @@ private func Symbol(_ name: String) -> some View {
 #Preview {
     WelcomeView()
 }
+
