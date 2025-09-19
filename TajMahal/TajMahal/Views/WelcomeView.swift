@@ -5,27 +5,28 @@ struct WelcomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 0) {
                     Image("TajMahal")
                         .resizable()
-                        .cornerRadius(16)
+                        .cornerRadius(10)
 
                     HStack() {
-                        VStack(alignment: .leading, spacing: 6) {
+                        VStack(alignment: .leading, spacing: 2) {
                             Text("Restaurant Indien")
                                 .foregroundStyle(.secondary)
                                 .font(.system(size: 12))
                             
                             Text("Taj Mahal")
                                 .foregroundStyle(.primary)
-                                .font(.system(size: 18, weight: .bold))
+                                .fontWeight(.bold)
+                                .font(.custom("PlusJakartaSans", size: 18))
                         }
                         Spacer()
                         Image("Logo1")
                     }
-                    .padding(.top, 16)
+                    .padding(.top, 32)
                     
-                    VStack {
+                    VStack(spacing: 14) {
                         KeyValueRow(
                             icon: "clock",
                             title: "Mardi",
@@ -49,9 +50,9 @@ struct WelcomeView: View {
                             text: "06 12 34 56 78",
                         )
                     }
-                    .padding(.top, 16)
+                    .padding(.top, 32)
                 }
-                .padding(.horizontal, 8)
+                .padding(.horizontal, 20)
                 .padding(.vertical, 16)
                 
             }
@@ -71,7 +72,7 @@ struct KeyValueRow: View {
     let value: String
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 12) {
+        HStack(alignment: .firstTextBaseline, spacing: 11) {
             Symbol(icon)
             Text(title)
                 .foregroundStyle(.secondary)
@@ -82,7 +83,6 @@ struct KeyValueRow: View {
                 .multilineTextAlignment(.trailing)
                 .font(.system(size: 12))
         }
-        .padding(.vertical, 4)
     }
 }
 
@@ -91,14 +91,13 @@ struct InfoRow: View {
     let text: String
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 12) {
+        HStack(alignment: .firstTextBaseline, spacing: 11) {
             Symbol(icon)
             Text(text)
                 .foregroundStyle(.secondary)
                 .font(.system(size: 12))
             Spacer(minLength: 0)
         }
-        .padding(.vertical, 4)
     }
 }
 
