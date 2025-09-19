@@ -85,7 +85,7 @@ struct KeyValueRow: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
-            Symbol(icon)
+            Image(icon)
             Text(title)
                 .foregroundStyle(grayColor)
                 .font(.system(size: 12))
@@ -104,17 +104,13 @@ struct InfoRow: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
-            Symbol(icon)
+            Image(icon)
             Text(text)
                 .foregroundStyle(grayColor)
                 .font(.system(size: 12))
             Spacer(minLength: 0)
         }
     }
-}
-
-private func Symbol(_ name: String) -> some View {
-    Image(name)
 }
 
 #Preview {
