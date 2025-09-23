@@ -44,10 +44,17 @@ struct MenuView: View {
                                         .font(.subheadline)
                                     Spacer()
                                     HStack {
-                                        Text("\(dish.price) €")
+                                        Text("\(dish.price, specifier: "%.2f") €")
                                             .font(.caption)
                                         Spacer()
-                                        Text("piment")
+                                        switch dish.spiceLevel {
+                                        case .hot:
+                                            Text("3")
+                                        case .medium:
+                                            Text("2")
+                                        case .light:
+                                            Text("1")
+                                        }
                                     }
                                 }
                                 .padding(.vertical, 12)
