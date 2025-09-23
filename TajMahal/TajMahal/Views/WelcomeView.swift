@@ -20,8 +20,8 @@ struct WelcomeView: View {
                             
                             Text("Taj Mahal")
                                 .foregroundStyle(.primary)
+                                .font(.custom("PlusJakartaSans-Variable", size: 18))
                                 .fontWeight(.bold)
-                                .font(.custom("PlusJakartaSans", size: 18))
                                 .padding(.top, 2)
                         }
                         Spacer()

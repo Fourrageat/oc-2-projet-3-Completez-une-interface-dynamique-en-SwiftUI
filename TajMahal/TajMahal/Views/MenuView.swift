@@ -7,19 +7,66 @@
 
 import SwiftUI
 
-// Menu sous forme de liste
+var backgroundColorView: Color {
+    Color(red: 24/255, green: 241/255, blue: 241/255)
+}
+
 struct MenuView: View {
-    // Référence vers le view model qui permet d'accéder aux tableaux d'entrées et de plats du menu
-    let viewModel: ViewModel = ViewModel()
+    let mainCourseArray = ViewModel().mainCourseArray
+    let apetizerArray = ViewModel().apetizerArray
     
     var body: some View {
-//        List(viewModel.mainCourseArray, id: \.name) { mainCourse in
-//            VStack(alignment: .leading) {
-//                Text(mainCourse.name)
-//                Text(mainCourse.description)
-//                Text(mainCourse.allergens)
-//            }
-//        }
+        
+        ZStack {
+            backgroundColorView.ignoresSafeArea()
+            
+            ScrollView {
+                VStack {
+                    
+                    if apetizerArray.isEmpty {
+                        Text("Aucun plat principal trouvé.")
+                    } else {
+                        ForEach(apetizerArray, id: \.name) { dish in
+                                
+                            HStack (spacing: 25) {
+                                Image(dish.imageName)
+                                    .resizable()
+                                    .frame(width: 112, height: 86)
+                                    .cornerRadius(8)
+                                VStack(alignment: .leading) {
+                                    Text(dish.name)
+                                        .font(.headline)
+                                    Text(dish.description)
+                                        .font(.subheadline)
+                                    HStack {
+                                        Text("\(dish.price) €")
+                                            .font(.caption)
+                                    }
+                                }
+                            }
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .padding(.vertical, 4)
+                        }
+                    }
+                    
+                    if mainCourseArray.isEmpty {
+                        Text("Aucun plat principal trouvé.")
+                    } else {
+                        ForEach(mainCourseArray, id: \.name) { dish in
+                            VStack(alignment: .leading) {
+                                Text(dish.name)
+                                    .font(.headline)
+                                Text(dish.description)
+                                    .font(.subheadline)
+                            }
+                        }
+                        .scrollDisabled(true)
+                        .background(backgroundColorView)
+                    }
+                }
+            }
+        }
     }
 }
 

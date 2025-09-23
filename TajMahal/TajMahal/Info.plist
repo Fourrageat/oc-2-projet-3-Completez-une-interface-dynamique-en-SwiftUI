@@ -4,7 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>PlusJakartaSans.ttf</string>
+		<string>PlusJakartaSans-Variable.ttf</string>
 	</array>
 	<key>UILaunchScreen</key>
 	<dict>
