@@ -8,7 +8,7 @@
 import SwiftUI
 
 var backgroundColorView: Color {
-    Color(red: 24/255, green: 241/255, blue: 241/255)
+    Color(red: 241/255, green: 241/255, blue: 241/255)
 }
 
 struct MenuView: View {
@@ -28,11 +28,12 @@ struct MenuView: View {
                     } else {
                         ForEach(apetizerArray, id: \.name) { dish in
                                 
-                            HStack (spacing: 25) {
+                            HStack(spacing: 12) {
                                 Image(dish.imageName)
                                     .resizable()
                                     .frame(width: 112, height: 86)
                                     .cornerRadius(8)
+                                    .padding(.horizontal, 11)
                                 VStack(alignment: .leading) {
                                     Text(dish.name)
                                         .font(.headline)
@@ -43,27 +44,13 @@ struct MenuView: View {
                                             .font(.caption)
                                     }
                                 }
+                                .padding(.vertical, 12)
                             }
                             .background(Color.white)
                             .cornerRadius(10)
-                            .padding(.vertical, 4)
                         }
                     }
                     
-                    if mainCourseArray.isEmpty {
-                        Text("Aucun plat principal trouvé.")
-                    } else {
-                        ForEach(mainCourseArray, id: \.name) { dish in
-                            VStack(alignment: .leading) {
-                                Text(dish.name)
-                                    .font(.headline)
-                                Text(dish.description)
-                                    .font(.subheadline)
-                            }
-                        }
-                        .scrollDisabled(true)
-                        .background(backgroundColorView)
-                    }
                 }
             }
         }
