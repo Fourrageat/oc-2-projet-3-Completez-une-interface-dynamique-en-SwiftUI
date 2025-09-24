@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // Cette enumération répertorie 3 niveaux de piment
 enum SpiceLevel {
@@ -24,3 +25,6 @@ struct Dish {
     var imageName: String
     var price: Double
 }
+
+// Font color
+var grayColor: Color { Color(red: 102/255, green: 102/255, blue: 102/255) }

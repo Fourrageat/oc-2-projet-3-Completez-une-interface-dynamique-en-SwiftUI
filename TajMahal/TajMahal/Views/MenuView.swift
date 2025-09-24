@@ -22,9 +22,11 @@ struct MenuView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
+                        .foregroundStyle(grayColor)
                     RowMenuView(menuItems: apetizerArray)
                     Text("Plats Principaux")
                         .padding(.top, 12)
+                        .foregroundStyle(grayColor)
                     RowMenuView(menuItems: mainCourseArray)
                 }
                 .padding(.horizontal, 20)
@@ -55,14 +57,17 @@ struct RowMenuView: View {
                         Text(dish.name)
                             .font(.system(size: 14))
                             .fontWeight(.bold)
+                            .foregroundStyle(grayColor)
                         Spacer()
                         Text(dish.description)
                             .font(.system(size: 12))
                             .font(.subheadline)
+                            .foregroundStyle(grayColor)
                         Spacer()
                         HStack {
                             Text("\(dish.price, specifier: "%.2f") €")
                                 .font(.caption)
+                                .foregroundStyle(grayColor)
                             Spacer()
                             switch dish.spiceLevel {
                             case .hot:
