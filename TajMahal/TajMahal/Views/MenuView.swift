@@ -20,7 +20,7 @@ struct MenuView: View {
             backgroundColorView.ignoresSafeArea()
             
             ScrollView {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
                     RowMenuView(menuItems: apetizerArray)
                     Text("Plats Principaux")
@@ -40,22 +40,22 @@ struct RowMenuView: View {
     var body: some View {
         
         if menuItems.isEmpty {
-            Text("Aucun plat principal trouvé.")
+            Text("Aucun plat trouvé.")
         } else {
             ForEach(menuItems, id: \.name) { dish in
                     
-                HStack(spacing: 12) {
+                HStack(spacing: 25) {
                     Image(dish.imageName)
                         .resizable()
                         .frame(width: 112, height: 86)
                         .cornerRadius(8)
-                        .padding(.horizontal, 11)
+                        .padding(.leading, 11)
                         .padding(.vertical, 12)
                     VStack(alignment: .leading) {
                         Text(dish.name)
                             .font(.system(size: 14))
                             .fontWeight(.bold)
-                            Spacer()
+                        Spacer()
                         Text(dish.description)
                             .font(.system(size: 12))
                             .font(.subheadline)
