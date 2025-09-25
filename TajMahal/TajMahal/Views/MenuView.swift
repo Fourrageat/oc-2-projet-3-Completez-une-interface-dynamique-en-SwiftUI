@@ -15,23 +15,27 @@ struct MenuView: View {
     }
     
     var body: some View {
-        
-        ZStack {
-            backgroundColorView.ignoresSafeArea()
-            
-            ScrollView {
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Entrées")
-                        .foregroundStyle(grayColor)
-                    RowMenuView(menuItems: apetizerArray)
-                    Text("Plats Principaux")
-                        .padding(.top, 12)
-                        .foregroundStyle(grayColor)
-                    RowMenuView(menuItems: mainCourseArray)
+        NavigationStack {
+            ZStack {
+                backgroundColorView.ignoresSafeArea()
+                
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 12) {
+                        Text("Entrées")
+                            .foregroundStyle(grayColor)
+                        RowMenuView(menuItems: apetizerArray)
+                        Text("Plats Principaux")
+                            .padding(.top, 12)
+                            .foregroundStyle(grayColor)
+                        RowMenuView(menuItems: mainCourseArray)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
                 }
-                .padding(.horizontal, 20)
             }
         }
+        .navigationTitle("Menu")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -45,51 +49,60 @@ struct RowMenuView: View {
             Text("Aucun plat trouvé.")
         } else {
             ForEach(menuItems, id: \.name) { dish in
-                    
-                HStack(spacing: 25) {
-                    Image(dish.imageName)
-                        .resizable()
-                        .frame(width: 112, height: 86)
-                        .cornerRadius(8)
-                        .padding(.leading, 11)
-                        .padding(.vertical, 12)
-                    VStack(alignment: .leading) {
-                        Text(dish.name)
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
-                            .foregroundStyle(grayColor)
-                        Spacer()
-                        Text(dish.description)
-                            .font(.system(size: 12))
-                            .font(.subheadline)
-                            .foregroundStyle(grayColor)
-                        Spacer()
-                        HStack {
-                            Text("\(dish.price, specifier: "%.2f") €")
-                                .font(.caption)
+                NavigationLink {
+                    MenuDetailsView(dish: dish)
+                } label: {
+                    HStack(spacing: 25) {
+                        Image(dish.imageName)
+                            .resizable()
+                            .frame(width: 112, height: 86)
+                            .cornerRadius(8)
+                            .padding(.leading, 11)
+                            .padding(.vertical, 12)
+                        VStack(alignment: .leading) {
+                            Text(dish.name)
+                                .font(.system(size: 14))
+                                .fontWeight(.bold)
                                 .foregroundStyle(grayColor)
+                                .multilineTextAlignment(.leading)
                             Spacer()
-                            switch dish.spiceLevel {
-                            case .hot:
-                                Text("3")
-                            case .medium:
-                                Text("2")
-                            case .light:
-                                Text("1")
+                            Text(dish.description)
+                                .font(.system(size: 12))
+                                .font(.subheadline)
+                                .foregroundStyle(grayColor)
+                                .multilineTextAlignment(.leading)
+                            Spacer()
+                            HStack {
+                                Text("\(dish.price, specifier: "%.2f") €")
+                                    .font(.caption)
+                                    .foregroundStyle(grayColor)
+                                Spacer()
+                                switch dish.spiceLevel {
+                                case .hot:
+                                    Text("3")
+                                case .medium:
+                                    Text("2")
+                                case .light:
+                                    Text("1")
+                                }
                             }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, 12)
+                        .padding(.trailing, 16)
                     }
-                    .padding(.vertical, 12)
-                    .padding(.trailing, 16)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.white)
+                    .cornerRadius(10)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.white)
-                .cornerRadius(10)
+                
             }
         }
     }
 }
 
 #Preview {
-    MenuView()
+    NavigationStack {
+        MenuView()
+    }
 }
