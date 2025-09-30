@@ -79,11 +79,11 @@ struct RowMenuView: View {
                                 Spacer()
                                 switch dish.spiceLevel {
                                 case .hot:
-                                    Text("3")
+                                    SpiceView(spiceLevel: 3, size: 12)
                                 case .medium:
-                                    Text("2")
+                                    SpiceView(spiceLevel: 2, size: 12)
                                 case .light:
-                                    Text("1")
+                                    SpiceView(spiceLevel: 1, size: 12)
                                 }
                             }
                         }
@@ -95,8 +95,18 @@ struct RowMenuView: View {
                     .background(Color.white)
                     .cornerRadius(10)
                 }
-                
             }
+        }
+    }
+}
+
+@ViewBuilder
+func SpiceView(spiceLevel: Int, size: CGFloat) -> some View {
+    HStack(spacing: 8) {
+        ForEach(0..<3) { index in
+            Image(index < spiceLevel ? "piment-red" : "piment")
+                .resizable()
+                .frame(width: size, height: size)
         }
     }
 }
