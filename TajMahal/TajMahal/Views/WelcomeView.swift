@@ -1,8 +1,6 @@
 import SwiftUI
 
 
-var redColor: Color { Color(red: 207/255, green: 47/255, blue: 47/255) }
-
 struct WelcomeView: View {
     var body: some View {
         NavigationStack {
