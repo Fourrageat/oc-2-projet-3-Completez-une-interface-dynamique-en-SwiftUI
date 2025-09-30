@@ -42,29 +42,36 @@ struct MenuDetailsView: View {
             }
             Text("Allergènes:")
                 .padding(.top, 32)
-                .font(.system(size: 12))
                 .foregroundStyle(grayColor)
+                .font(.custom("PlusJakartaSans-Regular", size: 12))
                 .fontWeight(.bold)
             Text(dish.allergens)
                 .padding(.top, 8)
                 .padding(.bottom, 15)
-                .font(.system(size: 12))
                 .foregroundStyle(grayColor)
+                .font(.custom("PlusJakartaSans-Regular", size: 12))
             Divider()
             Text("Ingrédients:")
                 .padding(.top, 15)
-                .font(.system(size: 12))
                 .foregroundStyle(grayColor)
+                .font(.custom("PlusJakartaSans-Regular", size: 12))
                 .fontWeight(.bold)
             Text(dish.ingredients)
                 .padding(.top, 8)
-                .font(.system(size: 12))
                 .foregroundStyle(grayColor)
+                .font(.custom("PlusJakartaSans-Regular", size: 12))
         }
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity, alignment: .top)
-        .navigationTitle(dish.name)
+        .font(.custom("PlusJakartaSans-Regular", size: 12))
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(dish.name)
+                    .font(.custom("PlusJakartaSans-Regular", size: 18))
+                    .fontWeight(.bold)
+            }
+        }
     }
 }
 

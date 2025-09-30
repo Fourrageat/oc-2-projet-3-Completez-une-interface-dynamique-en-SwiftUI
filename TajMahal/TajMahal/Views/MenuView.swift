@@ -16,26 +16,35 @@ struct MenuView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                backgroundColorView.ignoresSafeArea()
-                
-                ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 12) {
-                        Text("Entrées")
-                            .foregroundStyle(grayColor)
-                        RowMenuView(menuItems: apetizerArray)
-                        Text("Plats Principaux")
-                            .padding(.top, 12)
-                            .foregroundStyle(grayColor)
-                        RowMenuView(menuItems: mainCourseArray)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 20)
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 12) {
+                    Text("Entrées")
+                        .foregroundStyle(grayColor)
+                        .font(.custom("PlusJakartaSans-Regular", size: 14))
+                        .fontWeight(.bold)
+                    RowMenuView(menuItems: apetizerArray)
+                    Text("Plats Principaux")
+                        .padding(.top, 12)
+                        .foregroundStyle(grayColor)
+                        .font(.custom("PlusJakartaSans-Regular", size: 14))
+                        .fontWeight(.bold)
+                    RowMenuView(menuItems: mainCourseArray)
                 }
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+            }
+            .background(backgroundColorView)
+
+        }
+        .font(.custom("PlusJakartaSans-Regular", size: 12))
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Menu")
+                    .font(.custom("PlusJakartaSans-Regular", size: 18))
+                    .fontWeight(.bold)
             }
         }
-        .navigationTitle("Menu")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -61,13 +70,13 @@ struct RowMenuView: View {
                             .padding(.vertical, 12)
                         VStack(alignment: .leading) {
                             Text(dish.name)
-                                .font(.system(size: 14))
+                                .font(.custom("PlusJakartaSans-Regular", size: 14))
                                 .fontWeight(.bold)
                                 .foregroundStyle(grayColor)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             Text(dish.description)
-                                .font(.system(size: 12))
+                                .font(.custom("PlusJakartaSans-Regular", size: 12))
                                 .font(.subheadline)
                                 .foregroundStyle(grayColor)
                                 .multilineTextAlignment(.leading)
@@ -76,6 +85,8 @@ struct RowMenuView: View {
                                 Text("\(dish.price, specifier: "%.2f") €")
                                     .font(.caption)
                                     .foregroundStyle(grayColor)
+                                    .font(.custom("PlusJakartaSans-Regular", size: 12))
+                                    .fontWeight(.bold)
                                 Spacer()
                                 switch dish.spiceLevel {
                                 case .hot:
