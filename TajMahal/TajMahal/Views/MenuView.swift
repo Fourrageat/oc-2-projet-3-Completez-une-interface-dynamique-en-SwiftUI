@@ -71,7 +71,7 @@ struct RowMenuView: View {
                         VStack(alignment: .leading) {
                             Text(dish.name)
                                 .font(.custom("PlusJakartaSans-Regular", size: 14))
-                                .fontWeight(.bold)
+                                .fontWeight(.semibold)
                                 .foregroundStyle(grayColor)
                                 .multilineTextAlignment(.leading)
                             Spacer()
@@ -86,7 +86,7 @@ struct RowMenuView: View {
                                     .font(.caption)
                                     .foregroundStyle(grayColor)
                                     .font(.custom("PlusJakartaSans-Regular", size: 12))
-                                    .fontWeight(.bold)
+                                    .fontWeight(.semibold)
                                 Spacer()
                                 switch dish.spiceLevel {
                                 case .hot:
