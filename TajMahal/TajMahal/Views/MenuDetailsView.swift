@@ -12,13 +12,33 @@ struct MenuDetailsView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            ZStack {
+            ZStack(alignment: .top) {
                 Image(dish.imageName)
                     .resizable()
                     .cornerRadius(10)
                     .frame(height: 467)
                     .aspectRatio(contentMode: .fit)
                     .clipped()
+                VStack {
+                    HStack {
+                        Spacer()
+                        Group {
+                            switch dish.spiceLevel {
+                            case .hot:
+                                SpiceView(spiceLevel: 3, size: 14)
+                            case .medium:
+                                SpiceView(spiceLevel: 2, size: 14)
+                            case .light:
+                                SpiceView(spiceLevel: 1, size: 14)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .background(Color.white)
+                        .cornerRadius(11)
+                    }
+                }
+                .padding([.top, .trailing], 12)
             }
             Text("Allergènes:")
                 .padding(.top, 32)
@@ -53,3 +73,4 @@ struct MenuDetailsView: View {
         MenuDetailsView(dish: ViewModel().apetizerArray[1])
     }
 }
+
