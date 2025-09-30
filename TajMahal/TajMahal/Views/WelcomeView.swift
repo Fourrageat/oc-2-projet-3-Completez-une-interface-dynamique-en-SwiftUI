@@ -3,6 +3,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
+        var customBlackColor: Color { Color(red: 51/255, green: 51/255, blue: 51/255) }
         NavigationStack {
             VStack {
                 VStack(alignment: .leading, spacing: 0) {
@@ -17,7 +18,7 @@ struct WelcomeView: View {
                                 .font(.custom("PlusJakartaSans-Regular", size: 12))
                             
                             Text("Taj Mahal")
-                                .foregroundStyle(.primary)
+                                .foregroundStyle(customBlackColor)
                                 .font(.custom("PlusJakartaSans-Regular", size: 18))
                                 .fontWeight(.bold)
                                 .padding(.top, 2)
