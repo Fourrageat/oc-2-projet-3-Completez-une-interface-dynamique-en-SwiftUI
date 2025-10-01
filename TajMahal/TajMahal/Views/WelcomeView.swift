@@ -1,16 +1,22 @@
+// Vue d'accueil affichant les informations principales du restaurant et permettant d'accéder au menu.
+
 import SwiftUI
 
-
+// Écran d'accueil du restaurant affichant image, informations et bouton d'accès au menu
 struct WelcomeView: View {
     var body: some View {
+        // Couleur noire personnalisée pour certains textes
         var customBlackColor: Color { Color(red: 51/255, green: 51/255, blue: 51/255) }
         NavigationStack {
             VStack {
+                // Section principale avec l'image et infos du restaurant
                 VStack(alignment: .leading, spacing: 0) {
+                    // Image représentant le restaurant
                     Image("TajMahal")
                         .resizable()
                         .cornerRadius(10)
 
+                    // Ligne avec le nom, le type de restaurant et le logo
                     HStack() {
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Restaurant Indien")
@@ -28,6 +34,7 @@ struct WelcomeView: View {
                     }
                     .padding(.top, 32)
                     
+                    // Section avec les différentes infos (horaires, service, adresse, etc.)
                     VStack(spacing: 14) {
                         KeyValueRow(
                             icon: "Horaire",
@@ -58,7 +65,7 @@ struct WelcomeView: View {
                 .padding(.vertical, 16)
                 
             }
-            
+            // Bouton de navigation vers le menu du restaurant
             NavigationLink {
                 MenuView()
             } label: {
@@ -78,12 +85,14 @@ struct WelcomeView: View {
     }
 }
 
+// Sous-vue affichant une ligne d'information avec une icône, un titre et une valeur
 struct KeyValueRow: View {
     let icon: String
     let title: String
     let value: String
 
     var body: some View {
+        // Ligne HStack avec l'icône, le titre et la valeur
         HStack(alignment: .center, spacing: 10) {
             Image(icon)
             Text(title)
@@ -98,11 +107,13 @@ struct KeyValueRow: View {
     }
 }
 
+// Sous-vue affichant une ligne d'information simple avec une icône
 struct InfoRow: View {
     let icon: String
     let text: String
 
     var body: some View {
+        // Ligne HStack avec l'icône et le texte
         HStack(alignment: .center, spacing: 10) {
             Image(icon)
             Text(text)

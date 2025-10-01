@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+// Vue qui affiche le détail d’un plat (image, allergènes, ingrédients, niveau d’épices)
 struct MenuDetailsView: View {
+    // Plat à afficher
     let dish: Dish
-    
+
     var body: some View {
+        // Structure verticale de la page de détails
         VStack(alignment: .leading, spacing: 0) {
+            // Image du plat et badge niveau d’épices en superposition
             ZStack(alignment: .top) {
                 Image(dish.imageName)
                     .resizable()
@@ -40,6 +44,7 @@ struct MenuDetailsView: View {
                 }
                 .padding([.top, .trailing], 12)
             }
+            // Section affichant les allergènes du plat
             Text("Allergènes:")
                 .padding(.top, 32)
                 .foregroundStyle(grayColor)
@@ -51,6 +56,7 @@ struct MenuDetailsView: View {
                 .foregroundStyle(grayColor)
                 .font(.custom("PlusJakartaSans-Regular", size: 12))
             Divider()
+            // Section affichant les ingrédients du plat
             Text("Ingrédients:")
                 .padding(.top, 15)
                 .foregroundStyle(grayColor)
@@ -61,6 +67,7 @@ struct MenuDetailsView: View {
                 .foregroundStyle(grayColor)
                 .font(.custom("PlusJakartaSans-Regular", size: 12))
         }
+        // Affiche le nom du plat dans la barre d’outils en haut de l’écran
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity, alignment: .top)
         .font(.custom("PlusJakartaSans-Regular", size: 12))
@@ -80,4 +87,3 @@ struct MenuDetailsView: View {
         MenuDetailsView(dish: ViewModel().apetizerArray[1])
     }
 }
-
