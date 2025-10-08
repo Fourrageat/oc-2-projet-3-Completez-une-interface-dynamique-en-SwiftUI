@@ -9,23 +9,20 @@ struct WelcomeView: View {
         var customBlackColor: Color { Color(red: 51/255, green: 51/255, blue: 51/255) }
         NavigationStack {
             VStack {
-                // Section principale avec l'image et infos du restaurant
                 VStack(alignment: .leading, spacing: 0) {
-                    // Image représentant le restaurant
                     Image("TajMahal")
                         .resizable()
                         .cornerRadius(10)
 
-                    // Ligne avec le nom, le type de restaurant et le logo
                     HStack() {
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Restaurant Indien")
                                 .foregroundStyle(grayColor)
-                                .font(.custom("PlusJakartaSans-Regular", size: 12))
-                            
+                                .font(Font.plusJakartaSansRegular(size: 12))
+
                             Text("Taj Mahal")
                                 .foregroundStyle(customBlackColor)
-                                .font(.custom("PlusJakartaSans-Regular", size: 18))
+                                .font(Font.plusJakartaSansRegular(size: 18))
                                 .fontWeight(.bold)
                                 .padding(.top, 2)
                         }
@@ -33,8 +30,6 @@ struct WelcomeView: View {
                         Image("Logo1")
                     }
                     .padding(.top, 32)
-                    
-                    // Section avec les différentes infos (horaires, service, adresse, etc.)
                     VStack(spacing: 14) {
                         KeyValueRow(
                             icon: "Horaire",
@@ -70,7 +65,7 @@ struct WelcomeView: View {
                 MenuView()
             } label: {
                 Text("Accéder au menu")
-                    .font(.custom("PlusJakartaSans-Regular", size: 16))
+                    .font(Font.plusJakartaSansRegular(size: 16))
                     .fontWeight(.bold)
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -97,12 +92,14 @@ struct KeyValueRow: View {
             Image(icon)
             Text(title)
                 .foregroundStyle(grayColor)
-                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                .font(Font.plusJakartaSansRegular(size: 12))
+
             Spacer()
             Text(value)
                 .foregroundStyle(grayColor)
                 .multilineTextAlignment(.trailing)
-                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                .font(Font.plusJakartaSansRegular(size: 12))
+
         }
     }
 }
@@ -118,7 +115,7 @@ struct InfoRow: View {
             Image(icon)
             Text(text)
                 .foregroundStyle(grayColor)
-                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                .font(Font.plusJakartaSansRegular(size: 12))
             Spacer(minLength: 0)
         }
     }

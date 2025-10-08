@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-// Vue principale affichant le menu du restaurant, incluant les entrées et les plats principaux
 
-// Vue qui affiche le menu du restaurant (entrées et plats principaux)
 struct MenuView: View {
     // Tableau des entrées récupéré depuis le ViewModel
     let apetizerArray = ViewModel().apetizerArray
@@ -20,28 +18,23 @@ struct MenuView: View {
         Color(red: 241/255, green: 241/255, blue: 241/255)
     }
     
+    
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
-        // Navigation avec barre d’outils
         NavigationStack {
-            // ScrollView contenant la liste des catégories et plats
             ScrollView {
-                // Section verticale paresseuse pour optimiser l'affichage
                 LazyVStack(alignment: .leading, spacing: 12) {
-                    // Titre de la section Entrées
                     Text("Entrées")
                         .foregroundStyle(grayColor)
-                        .font(.custom("PlusJakartaSans-Regular", size: 14))
+                        .font(Font.plusJakartaSansRegular(size: 14))
                         .fontWeight(.bold)
-                    // Affichage des entrées via la sous-vue RowMenuView
                     RowMenuView(menuItems: apetizerArray)
                     
-                    // Titre de la section Plats Principaux
                     Text("Plats Principaux")
                         .padding(.top, 12)
                         .foregroundStyle(grayColor)
-                        .font(.custom("PlusJakartaSans-Regular", size: 14))
+                        .font(Font.plusJakartaSansRegular(size: 14))
                         .fontWeight(.bold)
-                    // Affichage des plats principaux via la sous-vue RowMenuView
                     RowMenuView(menuItems: mainCourseArray)
                 }
                 .padding(.horizontal, 20)
@@ -49,65 +42,76 @@ struct MenuView: View {
             }
             .background(backgroundColorView)
         }
-        .font(.custom("PlusJakartaSans-Regular", size: 12))
         .navigationBarTitleDisplayMode(.inline)
-        // Configuration de la toolbar affichant le titre "Menu"
+        .navigationBarBackButtonHidden(true)
         .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("Menu")
-                    .font(.custom("PlusJakartaSans-Regular", size: 18))
-                    .fontWeight(.bold)
+            if #available(iOS 26.0, *) {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "chevron.left")
+                    }
+                }
+                .sharedBackgroundVisibility(.hidden)
+                ToolbarItem(placement: .principal) {
+                    Text("Menu")
+                        .font(Font.plusJakartaSansRegular(size: 18))
+                        .fontWeight(.bold)
+                        .fixedSize()
+                }
+            } else {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "chevron.left")
+                    }
+                }
+                ToolbarItem(placement: .principal) {
+                    Text("Menu")
+                        .font(Font.plusJakartaSansRegular(size: 18))
+                        .fontWeight(.bold)
+                        .fixedSize()
+                }
             }
         }
     }
 }
 
-// Sous-vue qui affiche une liste de plats sous forme de lignes
 struct RowMenuView: View {
     let menuItems: [Dish]
     
     var body: some View {
-        // Si aucun plat, affiche un message d'absence de plats
         if menuItems.isEmpty {
             Text("Aucun plat trouvé.")
         } else {
-            // Pour chaque plat, affiche une ligne cliquable menant au détail
             ForEach(menuItems, id: \.name) { dish in
                 NavigationLink {
-                    // Vue détaillée du plat sélectionné
                     MenuDetailsView(dish: dish)
                 } label: {
-                    // Structure visuelle de la ligne de plat
                     HStack(spacing: 25) {
-                        // Image du plat avec taille et coins arrondis
                         Image(dish.imageName)
                             .resizable()
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 112, height: 86)
                             .cornerRadius(8)
                             .padding(.leading, 11)
                             .padding(.vertical, 12)
                         VStack(alignment: .leading) {
-                            // Nom du plat
                             Text(dish.name)
-                                .font(.custom("PlusJakartaSans-Regular", size: 14))
+                                .font(Font.plusJakartaSansRegular(size: 14))
                                 .fontWeight(.semibold)
                                 .foregroundStyle(grayColor)
                                 .multilineTextAlignment(.leading)
                             Spacer()
-                            // Description du plat
                             Text(dish.description)
-                                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                                .font(Font.plusJakartaSansRegular(size: 12))
                                 .font(.subheadline)
                                 .foregroundStyle(grayColor)
                                 .multilineTextAlignment(.leading)
                             Spacer()
-                            // Ligne contenant le prix et l'indicateur de niveau d'épices
                             HStack {
-                                // Prix formaté avec deux décimales
                                 Text("\(dish.price, specifier: "%.2f") €")
                                     .font(.caption)
                                     .foregroundStyle(grayColor)
-                                    .font(.custom("PlusJakartaSans-Regular", size: 12))
+                                    .font(Font.plusJakartaSansRegular(size: 12))
                                     .fontWeight(.semibold)
                                 Spacer()
                                 // Affichage du niveau d'épices avec une vue spécifique

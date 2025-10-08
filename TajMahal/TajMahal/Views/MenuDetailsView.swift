@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-// Vue qui affiche le détail d’un plat (image, allergènes, ingrédients, niveau d’épices)
 struct MenuDetailsView: View {
     // Plat à afficher
     let dish: Dish
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        // Structure verticale de la page de détails
         VStack(alignment: .leading, spacing: 0) {
-            // Image du plat et badge niveau d’épices en superposition
             ZStack(alignment: .top) {
                 Image(dish.imageName)
                     .resizable()
-                    .cornerRadius(10)
                     .frame(height: 467)
+                    .cornerRadius(10)
                     .aspectRatio(contentMode: .fit)
                     .clipped()
+                    
                 VStack {
                     HStack {
                         Spacer()
@@ -48,35 +47,57 @@ struct MenuDetailsView: View {
             Text("Allergènes:")
                 .padding(.top, 32)
                 .foregroundStyle(grayColor)
-                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                .font(Font.plusJakartaSansRegular(size: 12))
                 .fontWeight(.semibold)
             Text(dish.allergens)
                 .padding(.top, 8)
                 .padding(.bottom, 15)
                 .foregroundStyle(grayColor)
-                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                .font(Font.plusJakartaSansRegular(size: 12))
             Divider()
             // Section affichant les ingrédients du plat
             Text("Ingrédients:")
                 .padding(.top, 15)
                 .foregroundStyle(grayColor)
-                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                .font(Font.plusJakartaSansRegular(size: 12))
                 .fontWeight(.semibold)
             Text(dish.ingredients)
                 .padding(.top, 8)
                 .foregroundStyle(grayColor)
-                .font(.custom("PlusJakartaSans-Regular", size: 12))
+                .font(Font.plusJakartaSansRegular(size: 12))
         }
         // Affiche le nom du plat dans la barre d’outils en haut de l’écran
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity, alignment: .top)
-        .font(.custom("PlusJakartaSans-Regular", size: 12))
+        .font(Font.plusJakartaSansRegular(size: 12))
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(dish.name)
-                    .font(.custom("PlusJakartaSans-Regular", size: 18))
-                    .fontWeight(.bold)
+            if #available(iOS 26.0, *) {
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack {
+                        Button(action: { dismiss() }) {
+                            Image(systemName: "chevron.left")
+                        }
+                        Text(dish.name)
+                            .font(Font.plusJakartaSansRegular(size: 18))
+                            .fontWeight(.bold)
+                            .fixedSize()
+                    }
+                }
+                .sharedBackgroundVisibility(.hidden)
+            } else {
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack {
+                        Button(action: { dismiss() }) {
+                            Image(systemName: "chevron.left")
+                        }
+                        Text(dish.name)
+                            .font(Font.plusJakartaSansRegular(size: 18))
+                            .fontWeight(.bold)
+                            .fixedSize()
+                    }
+                }
             }
         }
     }
@@ -87,3 +108,4 @@ struct MenuDetailsView: View {
         MenuDetailsView(dish: ViewModel().apetizerArray[1])
     }
 }
+
