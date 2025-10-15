@@ -17,10 +17,9 @@ struct MenuDetailsView: View {
             ZStack(alignment: .top) {
                 Image(dish.imageName)
                     .resizable()
-                    .frame(height: 467)
-                    .cornerRadius(10)
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(3/4, contentMode: .fit)
                     .clipped()
+                    .cornerRadius(10)
                     
                 VStack {
                     HStack {
@@ -43,7 +42,6 @@ struct MenuDetailsView: View {
                 }
                 .padding([.top, .trailing], 12)
             }
-            // Section affichant les allergènes du plat
             Text("Allergènes:")
                 .padding(.top, 32)
                 .foregroundStyle(grayColor)
@@ -66,7 +64,6 @@ struct MenuDetailsView: View {
                 .foregroundStyle(grayColor)
                 .font(Font.plusJakartaSansRegular(size: 12))
         }
-        // Affiche le nom du plat dans la barre d’outils en haut de l’écran
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity, alignment: .top)
         .font(Font.plusJakartaSansRegular(size: 12))
@@ -91,6 +88,7 @@ struct MenuDetailsView: View {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
+                                .foregroundStyle(.black)
                         }
                         Text(dish.name)
                             .font(Font.plusJakartaSansRegular(size: 18))
@@ -108,4 +106,3 @@ struct MenuDetailsView: View {
         MenuDetailsView(dish: ViewModel().apetizerArray[1])
     }
 }
-
