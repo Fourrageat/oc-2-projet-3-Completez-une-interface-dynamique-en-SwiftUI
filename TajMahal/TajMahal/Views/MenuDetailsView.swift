@@ -89,6 +89,8 @@ struct MenuDetailsView: View {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
                                 .foregroundStyle(.black)
+                                .fontWeight(.semibold)
+                                
                         }
                         Text(dish.name)
                             .font(Font.plusJakartaSansRegular(size: 18))

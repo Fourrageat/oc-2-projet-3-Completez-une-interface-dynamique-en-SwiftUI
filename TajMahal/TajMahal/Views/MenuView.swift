@@ -63,6 +63,8 @@ struct MenuView: View {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
                             .foregroundStyle(.black)
+                            .fontWeight(.semibold)
+                        
                     }
                 }
                 ToolbarItem(placement: .principal) {
