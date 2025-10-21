@@ -79,6 +79,7 @@ struct MenuDetailsView: View {
                 return 12.0
             }
         }())
+        .padding(.bottom, 20)
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity, alignment: .top)
         .navigationBarTitleDisplayMode(.inline)
