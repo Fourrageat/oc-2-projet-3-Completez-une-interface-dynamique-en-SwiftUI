@@ -15,12 +15,20 @@ struct MenuDetailsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .top) {
-                Image(dish.imageName)
-                    .resizable()
-                    .aspectRatio(3/4, contentMode: .fit)
-                    .clipped()
-                    .cornerRadius(10)
-                    
+                GeometryReader { geometry in
+                    Image(dish.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(
+                            width: geometry.size.width,
+                            height: geometry.size.height,
+                        )
+                        .clipped()
+                        .cornerRadius(10)
+
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+
                 VStack {
                     HStack {
                         Spacer()
@@ -42,6 +50,7 @@ struct MenuDetailsView: View {
                 }
                 .padding([.top, .trailing], 12)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             Text("Allergènes:")
                 .padding(.top, 32)
                 .foregroundStyle(grayColor)
@@ -53,7 +62,6 @@ struct MenuDetailsView: View {
                 .foregroundStyle(grayColor)
                 .font(Font.plusJakartaSansRegular(size: 12))
             Divider()
-            // Section affichant les ingrédients du plat
             Text("Ingrédients:")
                 .padding(.top, 15)
                 .foregroundStyle(grayColor)
@@ -64,9 +72,15 @@ struct MenuDetailsView: View {
                 .foregroundStyle(grayColor)
                 .font(Font.plusJakartaSansRegular(size: 12))
         }
+        .padding(.top, {
+            if #available(iOS 26.0, *) {
+                return 8.0
+            } else {
+                return 12.0
+            }
+        }())
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity, alignment: .top)
-        .font(Font.plusJakartaSansRegular(size: 12))
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
