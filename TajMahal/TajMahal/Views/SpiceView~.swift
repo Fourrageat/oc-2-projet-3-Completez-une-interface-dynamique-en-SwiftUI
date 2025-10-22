@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Vue utilitaire pour afficher le niveau d'épices avec des icônes de piment.
+
 @ViewBuilder
 func SpiceView(spiceLevel: Int, size: CGFloat) -> some View {
 

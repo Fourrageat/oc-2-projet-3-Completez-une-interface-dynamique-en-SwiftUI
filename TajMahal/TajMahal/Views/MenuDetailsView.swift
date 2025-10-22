@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MenuDetailsView: View {
-    // Plat à afficher
     let dish: Dish
     @Environment(\.dismiss) private var dismiss
 
@@ -23,11 +22,8 @@ struct MenuDetailsView: View {
                             width: geometry.size.width,
                             height: geometry.size.height,
                         )
-                        .clipped()
                         .cornerRadius(10)
-
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
                 VStack {
                     HStack {
