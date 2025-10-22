@@ -16,11 +16,11 @@ struct WelcomeView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Restaurant Indien")
                                 .foregroundStyle(grayColor)
-                                .font(Font.defaultFont(size: 12))
+                                .font(Font.DefaultFont(size: 12))
 
                             Text("Taj Mahal")
                                 .foregroundStyle(blackColor)
-                                .font(Font.defaultFont(size: 18))
+                                .font(Font.DefaultFont(size: 18))
                                 .fontWeight(.bold)
                                 .padding(.top, 2)
                         }
@@ -63,7 +63,7 @@ struct WelcomeView: View {
                 MenuView()
             } label: {
                 Text("Accéder au menu")
-                    .font(Font.defaultFont(size: 16))
+                    .font(Font.DefaultFont(size: 16))
                     .fontWeight(.bold)
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -90,13 +90,13 @@ struct KeyValueRow: View {
             Image(icon)
             Text(title)
                 .foregroundStyle(grayColor)
-                .font(Font.defaultFont(size: 12))
+                .font(Font.DefaultFont(size: 12))
 
             Spacer()
             Text(value)
                 .foregroundStyle(grayColor)
                 .multilineTextAlignment(.trailing)
-                .font(Font.defaultFont(size: 12))
+                .font(Font.DefaultFont(size: 12))
 
         }
     }
@@ -113,7 +113,7 @@ struct InfoRow: View {
             Image(icon)
             Text(text)
                 .foregroundStyle(grayColor)
-                .font(Font.defaultFont(size: 12))
+                .font(Font.DefaultFont(size: 12))
             Spacer(minLength: 0)
         }
     }

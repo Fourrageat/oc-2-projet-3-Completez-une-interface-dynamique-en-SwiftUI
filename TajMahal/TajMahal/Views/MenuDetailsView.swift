@@ -50,23 +50,23 @@ struct MenuDetailsView: View {
             Text("Allergènes:")
                 .padding(.top, 32)
                 .foregroundStyle(grayColor)
-                .font(Font.defaultFont(size: 12))
+                .font(Font.DefaultFont(size: 12))
                 .fontWeight(.semibold)
             Text(dish.allergens)
                 .padding(.top, 8)
                 .padding(.bottom, 15)
                 .foregroundStyle(grayColor)
-                .font(Font.defaultFont(size: 12))
+                .font(Font.DefaultFont(size: 12))
             Divider()
             Text("Ingrédients:")
                 .padding(.top, 15)
                 .foregroundStyle(grayColor)
-                .font(Font.defaultFont(size: 12))
+                .font(Font.DefaultFont(size: 12))
                 .fontWeight(.semibold)
             Text(dish.ingredients)
                 .padding(.top, 8)
                 .foregroundStyle(grayColor)
-                .font(Font.defaultFont(size: 12))
+                .font(Font.DefaultFont(size: 12))
         }
         .padding(.top, {
             if #available(iOS 26.0, *) {
@@ -90,7 +90,7 @@ struct MenuDetailsView: View {
                         }
                         Text(dish.name)
                             .foregroundStyle(blackColor)
-                            .font(Font.defaultFont(size: 18))
+                            .font(Font.DefaultFont(size: 18))
                             .fontWeight(.bold)
                             .fixedSize()
                     }
@@ -107,7 +107,7 @@ struct MenuDetailsView: View {
                         }
                         Text(dish.name)
                             .foregroundStyle(blackColor)
-                            .font(Font.defaultFont(size: 18))
+                            .font(Font.DefaultFont(size: 18))
                             .fontWeight(.bold)
                             .fixedSize()
                     }
