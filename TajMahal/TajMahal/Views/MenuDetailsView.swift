@@ -86,8 +86,10 @@ struct MenuDetailsView: View {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
+                                .foregroundStyle(blackColor)
                         }
                         Text(dish.name)
+                            .foregroundStyle(blackColor)
                             .font(Font.defaultFont(size: 18))
                             .fontWeight(.bold)
                             .fixedSize()
@@ -99,11 +101,12 @@ struct MenuDetailsView: View {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
-                                .foregroundStyle(.black)
+                                .foregroundStyle(blackColor)
                                 .fontWeight(.semibold)
                                 
                         }
                         Text(dish.name)
+                            .foregroundStyle(blackColor)
                             .font(Font.defaultFont(size: 18))
                             .fontWeight(.bold)
                             .fixedSize()

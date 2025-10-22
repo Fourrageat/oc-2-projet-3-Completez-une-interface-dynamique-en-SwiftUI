@@ -9,17 +9,11 @@ import SwiftUI
 
 
 struct MenuView: View {
-    // Tableau des entrées récupéré depuis le ViewModel
     let apetizerArray = ViewModel().apetizerArray
-    // Tableau des plats principaux récupéré depuis le ViewModel
     let mainCourseArray = ViewModel().mainCourseArray
-    // Couleur de fond personnalisée
-    var backgroundColorView: Color {
-        Color(red: 241/255, green: 241/255, blue: 241/255)
-    }
-    
-    
+
     @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -40,7 +34,7 @@ struct MenuView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
             }
-            .background(backgroundColorView)
+            .background(backgroundColorMenuScreenView)
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
@@ -49,11 +43,13 @@ struct MenuView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
+                            .foregroundStyle(blackColor)
                     }
                 }
                 .sharedBackgroundVisibility(.hidden)
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
+                        .foregroundStyle(blackColor)
                         .font(Font.defaultFont(size: 18))
                         .fontWeight(.bold)
                         .fixedSize()
@@ -62,13 +58,14 @@ struct MenuView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
-                            .foregroundStyle(.black)
+                            .foregroundStyle(blackColor)
                             .fontWeight(.semibold)
                         
                     }
                 }
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
+                        .foregroundStyle(blackColor)
                         .font(Font.defaultFont(size: 18))
                         .fontWeight(.bold)
                         .fixedSize()

@@ -25,7 +25,3 @@ struct Dish {
     var imageName: String
     var price: Double
 }
-
-// Font color
-var grayColor: Color { Color(red: 102/255, green: 102/255, blue: 102/255) }
-var redColor: Color { Color(red: 207/255, green: 47/255, blue: 47/255) }

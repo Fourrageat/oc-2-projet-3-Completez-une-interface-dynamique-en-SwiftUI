@@ -5,8 +5,6 @@ import SwiftUI
 // Écran d'accueil du restaurant affichant image, informations et bouton d'accès au menu
 struct WelcomeView: View {
     var body: some View {
-        // Couleur noire personnalisée pour certains textes
-        var customBlackColor: Color { Color(red: 51/255, green: 51/255, blue: 51/255) }
         NavigationStack {
             VStack {
                 VStack(alignment: .leading, spacing: 0) {
@@ -21,7 +19,7 @@ struct WelcomeView: View {
                                 .font(Font.defaultFont(size: 12))
 
                             Text("Taj Mahal")
-                                .foregroundStyle(customBlackColor)
+                                .foregroundStyle(blackColor)
                                 .font(Font.defaultFont(size: 18))
                                 .fontWeight(.bold)
                                 .padding(.top, 2)
