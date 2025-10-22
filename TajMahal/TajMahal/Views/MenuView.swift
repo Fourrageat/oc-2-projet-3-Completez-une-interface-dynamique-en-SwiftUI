@@ -26,14 +26,14 @@ struct MenuView: View {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
                         .foregroundStyle(grayColor)
-                        .font(Font.plusJakartaSansRegular(size: 14))
+                        .font(Font.defaultFont(size: 14))
                         .fontWeight(.bold)
                     RowMenuView(menuItems: apetizerArray)
                     
                     Text("Plats Principaux")
                         .padding(.top, 12)
                         .foregroundStyle(grayColor)
-                        .font(Font.plusJakartaSansRegular(size: 14))
+                        .font(Font.defaultFont(size: 14))
                         .fontWeight(.bold)
                     RowMenuView(menuItems: mainCourseArray)
                 }
@@ -54,7 +54,7 @@ struct MenuView: View {
                 .sharedBackgroundVisibility(.hidden)
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .font(Font.plusJakartaSansRegular(size: 18))
+                        .font(Font.defaultFont(size: 18))
                         .fontWeight(.bold)
                         .fixedSize()
                 }
@@ -69,7 +69,7 @@ struct MenuView: View {
                 }
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .font(Font.plusJakartaSansRegular(size: 18))
+                        .font(Font.defaultFont(size: 18))
                         .fontWeight(.bold)
                         .fixedSize()
                 }
@@ -99,13 +99,13 @@ struct RowMenuView: View {
                             .padding(.vertical, 12)
                         VStack(alignment: .leading) {
                             Text(dish.name)
-                                .font(Font.plusJakartaSansRegular(size: 14))
+                                .font(Font.defaultFont(size: 14))
                                 .fontWeight(.semibold)
                                 .foregroundStyle(grayColor)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             Text(dish.description)
-                                .font(Font.plusJakartaSansRegular(size: 12))
+                                .font(Font.defaultFont(size: 12))
                                 .font(.subheadline)
                                 .foregroundStyle(grayColor)
                                 .multilineTextAlignment(.leading)
@@ -114,7 +114,7 @@ struct RowMenuView: View {
                                 Text("\(dish.price, specifier: "%.2f") €")
                                     .font(.caption)
                                     .foregroundStyle(grayColor)
-                                    .font(Font.plusJakartaSansRegular(size: 12))
+                                    .font(Font.defaultFont(size: 12))
                                     .fontWeight(.semibold)
                                 Spacer()
                                 // Affichage du niveau d'épices avec une vue spécifique
