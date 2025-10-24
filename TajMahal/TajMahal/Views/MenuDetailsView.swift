@@ -93,6 +93,7 @@ struct MenuDetailsView: View {
                             .foregroundStyle(blackColor)
                             .font(Font.DefaultFont(size: 18))
                             .fontWeight(.bold)
+                            .fixedSize()
                     }
                 }
                 .sharedBackgroundVisibility(.hidden)
