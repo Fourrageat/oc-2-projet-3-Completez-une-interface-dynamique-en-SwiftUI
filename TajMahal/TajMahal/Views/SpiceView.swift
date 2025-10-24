@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SpiceView: View {
     var spiceLevel: Int
-
     var size: CGFloat
+
     var body: some View {
         HStack(spacing: 8) {
             ForEach(0..<3) { index in
