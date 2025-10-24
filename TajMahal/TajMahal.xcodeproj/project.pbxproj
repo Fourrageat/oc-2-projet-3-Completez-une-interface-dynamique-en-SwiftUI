@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A0CFBFF2EABD6DA00D7B4E4 /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CFBFE2EABD6DA00D7B4E4 /* Springboard.swift */; };
 		3A3DDF1A2EA872C900D16608 /* ColorsStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DDF192EA872B100D16608 /* ColorsStyles.swift */; };
 		3AA4D7D02E8375ED001AFBD2 /* MenuDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4D7CF2E8375ED001AFBD2 /* MenuDetailsView.swift */; };
 		3AA4D7E02E8BD59B001AFBD2 /* SpiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4D7DF2E8BD592001AFBD2 /* SpiceView.swift */; };
@@ -21,7 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A0CFBFE2EABD6DA00D7B4E4 /* Springboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		3A3DDF192EA872B100D16608 /* ColorsStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsStyles.swift; sourceTree = "<group>"; };
 		3AA4D7CF2E8375ED001AFBD2 /* MenuDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailsView.swift; sourceTree = "<group>"; };
 		3AA4D7DF2E8BD592001AFBD2 /* SpiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceView.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				42E9DCAD2AF11136007CE7D0 /* TajMahalApp.swift */,
 				42E9DCB32AF11138007CE7D0 /* Preview Content */,
 				42E9DCB12AF11138007CE7D0 /* Assets.xcassets */,
-				3A0CFBFE2EABD6DA00D7B4E4 /* Springboard.swift */,
 				428D2B502AFA851900BBA4F5 /* Model.swift */,
 				428D2B522AFA882700BBA4F5 /* ViewModel.swift */,
 				3A3DDF192EA872B100D16608 /* ColorsStyles.swift */,
@@ -184,7 +181,6 @@
 				3AA4D7E02E8BD59B001AFBD2 /* SpiceView.swift in Sources */,
 				42E9DCAE2AF11136007CE7D0 /* TajMahalApp.swift in Sources */,
 				428D2B512AFA851900BBA4F5 /* Model.swift in Sources */,
-				3A0CFBFF2EABD6DA00D7B4E4 /* Springboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
