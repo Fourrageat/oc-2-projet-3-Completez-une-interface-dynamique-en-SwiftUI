@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SpiceView: View {
-    var spiceLevel: Int
-    var size: CGFloat
+    let spiceLevel: Int
+    let size: CGFloat
 
     var body: some View {
         HStack(spacing: 8) {
