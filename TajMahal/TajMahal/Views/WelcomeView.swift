@@ -25,7 +25,8 @@ struct WelcomeView: View {
                                 .padding(.top, 2)
                         }
                         Spacer()
-                        Image("Logo1")
+                        Image("GrayLogo")
+                            .frame(width: 40, height: 40)
                     }
                     .padding(.top, 32)
                     VStack(spacing: 14) {
