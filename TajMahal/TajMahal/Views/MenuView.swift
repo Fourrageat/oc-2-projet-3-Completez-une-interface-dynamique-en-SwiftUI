@@ -32,7 +32,13 @@ struct MenuView: View {
                     RowMenuView(menuItems: mainCourseArray)
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 20)
+                .padding(.top, {
+                    if #available(iOS 26.0, *) {
+                        return 6.0
+                    } else {
+                        return 12.0
+                    }
+                }())
             }
             .background(backgroundColorMenuScreenView)
         }
@@ -44,6 +50,7 @@ struct MenuView: View {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
                             .foregroundStyle(blackColor)
+                            .padding(.leading, -20)
                     }
                 }
                 .sharedBackgroundVisibility(.hidden)

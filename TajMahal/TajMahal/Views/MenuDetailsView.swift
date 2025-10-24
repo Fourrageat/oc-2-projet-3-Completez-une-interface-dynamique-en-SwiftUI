@@ -70,7 +70,7 @@ struct MenuDetailsView: View {
         }
         .padding(.top, {
             if #available(iOS 26.0, *) {
-                return 8.0
+                return 6.0
             } else {
                 return 12.0
             }
@@ -87,6 +87,7 @@ struct MenuDetailsView: View {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
                                 .foregroundStyle(blackColor)
+                                .padding(.leading, -10)
                         }
                         Text(dish.name)
                             .foregroundStyle(blackColor)
