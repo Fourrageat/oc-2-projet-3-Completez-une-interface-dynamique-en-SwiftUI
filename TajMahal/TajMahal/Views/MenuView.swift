@@ -59,7 +59,6 @@ struct MenuView: View {
                         .foregroundStyle(blackColor)
                         .font(Font.DefaultFont(size: 18))
                         .fontWeight(.bold)
-                        .fixedSize()
                 }
             } else {
                 ToolbarItem(placement: .topBarLeading) {
@@ -75,7 +74,6 @@ struct MenuView: View {
                         .foregroundStyle(blackColor)
                         .font(Font.DefaultFont(size: 18))
                         .fontWeight(.bold)
-                        .fixedSize()
                 }
             }
         }
