@@ -49,23 +49,23 @@ struct MenuDetailsView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             Text("Allergènes:")
                 .padding(.top, 32)
-                .foregroundStyle(grayColor)
+                .foregroundStyle(Color.appGray)
                 .font(Font.DefaultFont(size: 12))
                 .fontWeight(.semibold)
             Text(dish.allergens)
                 .padding(.top, 8)
                 .padding(.bottom, 15)
-                .foregroundStyle(grayColor)
+                .foregroundStyle(Color.appGray)
                 .font(Font.DefaultFont(size: 12))
             Divider()
             Text("Ingrédients:")
                 .padding(.top, 15)
-                .foregroundStyle(grayColor)
+                .foregroundStyle(Color.appGray)
                 .font(Font.DefaultFont(size: 12))
                 .fontWeight(.semibold)
             Text(dish.ingredients)
                 .padding(.top, 8)
-                .foregroundStyle(grayColor)
+                .foregroundStyle(Color.appGray)
                 .font(Font.DefaultFont(size: 12))
         }
         .padding(.top, {
@@ -86,11 +86,11 @@ struct MenuDetailsView: View {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
-                                .foregroundStyle(blackColor)
+                                .foregroundStyle(Color.appBlack)
                                 .padding(.leading, -10)
                         }
                         Text(dish.name)
-                            .foregroundStyle(blackColor)
+                            .foregroundStyle(Color.appBlack)
                             .font(Font.DefaultFont(size: 18))
                             .fontWeight(.bold)
                             .fixedSize()
@@ -102,12 +102,12 @@ struct MenuDetailsView: View {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
-                                .foregroundStyle(blackColor)
+                                .foregroundStyle(Color.appBlack)
                                 .fontWeight(.semibold)
                                 
                         }
                         Text(dish.name)
-                            .foregroundStyle(blackColor)
+                            .foregroundStyle(Color.appBlack)
                             .font(Font.DefaultFont(size: 18))
                             .fontWeight(.bold)
                     }

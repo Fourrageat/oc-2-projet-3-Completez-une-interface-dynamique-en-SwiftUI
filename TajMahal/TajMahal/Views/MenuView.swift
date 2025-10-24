@@ -19,14 +19,14 @@ struct MenuView: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
-                        .foregroundStyle(grayColor)
+                        .foregroundStyle(Color.appGray)
                         .font(Font.DefaultFont(size: 14))
                         .fontWeight(.bold)
                     RowMenuView(menuItems: apetizerArray)
                     
                     Text("Plats Principaux")
                         .padding(.top, 12)
-                        .foregroundStyle(grayColor)
+                        .foregroundStyle(Color.appGray)
                         .font(Font.DefaultFont(size: 14))
                         .fontWeight(.bold)
                     RowMenuView(menuItems: mainCourseArray)
@@ -40,7 +40,7 @@ struct MenuView: View {
                     }
                 }())
             }
-            .background(backgroundColorMenuScreenView)
+            .background(Color.backgroundMenuScreenView)
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
@@ -49,14 +49,14 @@ struct MenuView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
-                            .foregroundStyle(blackColor)
+                            .foregroundStyle(Color.appBlack)
                             .padding(.leading, -20)
                     }
                 }
                 .sharedBackgroundVisibility(.hidden)
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .foregroundStyle(blackColor)
+                        .foregroundStyle(Color.appBlack)
                         .font(Font.DefaultFont(size: 18))
                         .fontWeight(.bold)
                 }
@@ -64,14 +64,14 @@ struct MenuView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
-                            .foregroundStyle(blackColor)
+                            .foregroundStyle(Color.appBlack)
                             .fontWeight(.semibold)
                         
                     }
                 }
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .foregroundStyle(blackColor)
+                        .foregroundStyle(Color.appBlack)
                         .font(Font.DefaultFont(size: 18))
                         .fontWeight(.bold)
                 }
@@ -103,19 +103,19 @@ struct RowMenuView: View {
                             Text(dish.name)
                                 .font(Font.DefaultFont(size: 14))
                                 .fontWeight(.semibold)
-                                .foregroundStyle(grayColor)
+                                .foregroundStyle(Color.appGray)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             Text(dish.description)
                                 .font(Font.DefaultFont(size: 12))
                                 .font(.subheadline)
-                                .foregroundStyle(grayColor)
+                                .foregroundStyle(Color.appGray)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             HStack {
                                 Text("\(dish.price, specifier: "%.2f") €")
                                     .font(.caption)
-                                    .foregroundStyle(grayColor)
+                                    .foregroundStyle(Color.appGray)
                                     .font(Font.DefaultFont(size: 12))
                                     .fontWeight(.semibold)
                                 Spacer()
