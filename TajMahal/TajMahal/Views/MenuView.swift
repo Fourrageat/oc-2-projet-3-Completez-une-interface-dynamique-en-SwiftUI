@@ -19,16 +19,12 @@ struct MenuView: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
-                        .foregroundStyle(Color.appGray)
-                        .font(Font.DefaultFont(size: 14))
-                        .fontWeight(.bold)
+                        .commonFontStyles(14.0, Color.appGray, .bold)
                     RowMenuView(menuItems: apetizerArray)
                     
                     Text("Plats Principaux")
                         .padding(.top, 12)
-                        .foregroundStyle(Color.appGray)
-                        .font(Font.DefaultFont(size: 14))
-                        .fontWeight(.bold)
+                        .commonFontStyles(14.0, Color.appGray, .bold)
                     RowMenuView(menuItems: mainCourseArray)
                 }
                 .padding(.horizontal, 20)
@@ -56,9 +52,7 @@ struct MenuView: View {
                 .sharedBackgroundVisibility(.hidden)
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .foregroundStyle(Color.appBlack)
-                        .font(Font.DefaultFont(size: 18))
-                        .fontWeight(.bold)
+                        .commonFontStyles(18.0, Color.appBlack, .bold)
                 }
             } else {
                 ToolbarItem(placement: .topBarLeading) {
@@ -71,9 +65,7 @@ struct MenuView: View {
                 }
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .foregroundStyle(Color.appBlack)
-                        .font(Font.DefaultFont(size: 18))
-                        .fontWeight(.bold)
+                        .commonFontStyles(18.0, Color.appBlack, .bold)
                 }
             }
         }
@@ -101,21 +93,16 @@ struct RowMenuView: View {
                             .padding(.vertical, 12)
                         VStack(alignment: .leading) {
                             Text(dish.name)
-                                .font(Font.DefaultFont(size: 14))
-                                .fontWeight(.semibold)
-                                .foregroundStyle(Color.appGray)
+                                .commonFontStyles(14, Color.appGray, .semibold)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             Text(dish.description)
-                                .font(Font.DefaultFont(size: 12))
-                                .foregroundStyle(Color.appGray)
+                                .commonFontStyles(12, Color.appGray)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             HStack {
                                 Text("\(dish.price, specifier: "%.2f") €")
-                                    .foregroundStyle(Color.appGray)
-                                    .font(Font.DefaultFont(size: 12))
-                                    .fontWeight(.semibold)
+                                    .commonFontStyles(12, Color.appGray, .semibold)
                                 Spacer()
                                 // Affichage du niveau d'épices avec une vue spécifique
                                 switch dish.spiceLevel {
@@ -138,6 +125,24 @@ struct RowMenuView: View {
                 }
             }
         }
+    }
+}
+
+private struct CommonFontStylesModifier: ViewModifier {
+    let size: CGFloat
+    let color: Color
+    let weight: Font.Weight?
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(color)
+            .font(Font.DefaultFont(size: size))
+            .fontWeight(weight)
+    }
+}
+
+private extension View {
+    func commonFontStyles(_ size: CGFloat, _ color: Color, _ weight: Font.Weight? = nil) -> some View {
+        modifier(CommonFontStylesModifier(size: size, color: color, weight: weight))
     }
 }
 
