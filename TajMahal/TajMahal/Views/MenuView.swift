@@ -128,29 +128,6 @@ struct RowMenuView: View {
     }
 }
 
-private struct CommonFontStylesModifier: ViewModifier {
-    let size: CGFloat
-    let color: Color
-    let weight: Font.Weight?
-    func body(content: Content) -> some View {
-        content
-            .foregroundStyle(color)
-            .font(Font.DefaultFont(size: size))
-            .fontWeight(weight)
-    }
-}
-
-private extension View {
-
-    func commonFontStyles(_ size: CGFloat, _ weight: Font.Weight?) -> some View {
-        modifier(CommonFontStylesModifier(size: size, color: .appGray, weight: weight))
-    }
-
-    func commonFontStyles(_ size: CGFloat, _ color: Color = .appGray, _ weight: Font.Weight? = nil) -> some View {
-        modifier(CommonFontStylesModifier(size: size, color: color, weight: weight))
-    }
-}
-
 #Preview {
     NavigationStack {
         MenuView()

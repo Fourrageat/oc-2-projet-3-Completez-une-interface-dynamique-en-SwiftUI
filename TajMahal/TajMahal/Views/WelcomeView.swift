@@ -1,8 +1,6 @@
-// Vue d'accueil affichant les informations principales du restaurant et permettant d'accéder au menu.
 
 import SwiftUI
 
-// Écran d'accueil du restaurant affichant image, informations et bouton d'accès au menu
 struct WelcomeView: View {
     var body: some View {
         NavigationStack {
@@ -14,13 +12,10 @@ struct WelcomeView: View {
                 HStack() {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Restaurant Indien")
-                            .foregroundStyle(Color.appGray)
-                            .font(Font.DefaultFont(size: 12))
+                            .commonFontStyles(12)
 
                         Text("Taj Mahal")
-                            .foregroundStyle(Color.appBlack)
-                            .font(Font.DefaultFont(size: 18))
-                            .fontWeight(.bold)
+                            .commonFontStyles(18, Color.appBlack, .bold)
                             .padding(.top, 2)
                     }
                     Spacer()
@@ -58,9 +53,7 @@ struct WelcomeView: View {
                     MenuView()
                 } label: {
                     Text("Accéder au menu")
-                        .font(Font.DefaultFont(size: 16))
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
+                        .commonFontStyles(16, Color.white, .bold)
                         .frame(maxWidth: .infinity)
                         .frame(height: 40)
                         .background(Color.appRed)
@@ -73,42 +66,35 @@ struct WelcomeView: View {
     }
 }
 
-// Sous-vue affichant une ligne d'information avec une icône, un titre et une valeur
 struct KeyValueRow: View {
     let icon: String
     let title: String
     let value: String
 
     var body: some View {
-        // Ligne HStack avec l'icône, le titre et la valeur
         HStack(alignment: .center, spacing: 10) {
             Image(icon)
             Text(title)
-                .foregroundStyle(Color.appGray)
-                .font(Font.DefaultFont(size: 12))
+                .commonFontStyles(12)
 
             Spacer()
             Text(value)
-                .foregroundStyle(Color.appGray)
+                .commonFontStyles(12)
                 .multilineTextAlignment(.trailing)
-                .font(Font.DefaultFont(size: 12))
 
         }
     }
 }
 
-// Sous-vue affichant une ligne d'information simple avec une icône
 struct InfoRow: View {
     let icon: String
     let text: String
 
     var body: some View {
-        // Ligne HStack avec l'icône et le texte
         HStack(alignment: .center, spacing: 10) {
             Image(icon)
             Text(text)
-                .foregroundStyle(Color.appGray)
-                .font(Font.DefaultFont(size: 12))
+                .commonFontStyles(12)
             Spacer(minLength: 0)
         }
     }

@@ -48,25 +48,19 @@ struct MenuDetailsView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             Text("Allergènes:")
+                .commonFontStyles(12, .semibold)
                 .padding(.top, 32)
-                .foregroundStyle(Color.appGray)
-                .font(Font.DefaultFont(size: 12))
-                .fontWeight(.semibold)
             Text(dish.allergens)
+                .commonFontStyles(12)
                 .padding(.top, 8)
                 .padding(.bottom, 15)
-                .foregroundStyle(Color.appGray)
-                .font(Font.DefaultFont(size: 12))
             Divider()
             Text("Ingrédients:")
+                .commonFontStyles(12, .semibold)
                 .padding(.top, 15)
-                .foregroundStyle(Color.appGray)
-                .font(Font.DefaultFont(size: 12))
-                .fontWeight(.semibold)
             Text(dish.ingredients)
+                .commonFontStyles(12)
                 .padding(.top, 8)
-                .foregroundStyle(Color.appGray)
-                .font(Font.DefaultFont(size: 12))
         }
         .padding(.top, {
             if #available(iOS 26.0, *) {
@@ -90,9 +84,7 @@ struct MenuDetailsView: View {
                                 .padding(.leading, -10)
                         }
                         Text(dish.name)
-                            .foregroundStyle(Color.appBlack)
-                            .font(Font.DefaultFont(size: 18))
-                            .fontWeight(.bold)
+                            .commonFontStyles(18, Color.appBlack, .bold)
                             .fixedSize()
                     }
                 }
@@ -107,9 +99,7 @@ struct MenuDetailsView: View {
                                 
                         }
                         Text(dish.name)
-                            .foregroundStyle(Color.appBlack)
-                            .font(Font.DefaultFont(size: 18))
-                            .fontWeight(.bold)
+                            .commonFontStyles(18, Color.appBlack, .bold)
                     }
                 }
             }
