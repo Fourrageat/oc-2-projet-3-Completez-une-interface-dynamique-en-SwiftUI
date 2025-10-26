@@ -79,12 +79,12 @@ struct RowMenuView: View {
         if menuItems.isEmpty {
             Text("Aucun plat trouvé.")
         } else {
-            ForEach(menuItems, id: \.name) { dish in
+            ForEach(menuItems, id: \.name) { menu in
                 NavigationLink {
-                    MenuDetailsView(dish: dish)
+                    MenuDetailsView(menu: menu)
                 } label: {
                     HStack(spacing: 25) {
-                        Image(dish.imageName)
+                        Image(menu.imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 112, height: 86)
@@ -92,20 +92,20 @@ struct RowMenuView: View {
                             .padding(.leading, 11)
                             .padding(.vertical, 12)
                         VStack(alignment: .leading) {
-                            Text(dish.name)
+                            Text(menu.name)
                                 .commonFontStyles(14, .semibold)
                                 .multilineTextAlignment(.leading)
                             Spacer()
-                            Text(dish.description)
+                            Text(menu.description)
                                 .commonFontStyles(12)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             HStack {
-                                Text("\(dish.price, specifier: "%.2f") €")
+                                Text("\(menu.price, specifier: "%.2f") €")
                                     .commonFontStyles(12, .semibold)
                                 Spacer()
                                 // Affichage du niveau d'épices avec une vue spécifique
-                                switch dish.spiceLevel {
+                                switch menu.spiceLevel {
                                 case .hot:
                                     SpiceView(spiceLevel: 3, size: 12)
                                 case .medium:

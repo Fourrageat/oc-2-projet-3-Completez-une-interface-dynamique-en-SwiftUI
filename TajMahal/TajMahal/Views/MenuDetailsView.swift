@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MenuDetailsView: View {
-    let dish: Dish
+    let menu: Dish
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .top) {
                 GeometryReader { geometry in
-                    Image(dish.imageName)
+                    Image(menu.imageName)
                         .resizable()
                         .scaledToFill()
                         .frame(
@@ -29,7 +29,7 @@ struct MenuDetailsView: View {
                     HStack {
                         Spacer()
                         Group {
-                            switch dish.spiceLevel {
+                            switch menu.spiceLevel {
                             case .hot:
                                 SpiceView(spiceLevel: 3, size: 14)
                             case .medium:
@@ -50,7 +50,7 @@ struct MenuDetailsView: View {
             Text("Allergènes:")
                 .commonFontStyles(12, .semibold)
                 .padding(.top, 32)
-            Text(dish.allergens)
+            Text(menu.allergens)
                 .commonFontStyles(12)
                 .padding(.top, 8)
                 .padding(.bottom, 15)
@@ -58,7 +58,7 @@ struct MenuDetailsView: View {
             Text("Ingrédients:")
                 .commonFontStyles(12, .semibold)
                 .padding(.top, 15)
-            Text(dish.ingredients)
+            Text(menu.ingredients)
                 .commonFontStyles(12)
                 .padding(.top, 8)
         }
@@ -83,7 +83,7 @@ struct MenuDetailsView: View {
                                 .foregroundStyle(Color.appBlack)
                                 .padding(.leading, -10)
                         }
-                        Text(dish.name)
+                        Text(menu.name)
                             .commonFontStyles(18, Color.appBlack, .bold)
                             .fixedSize()
                     }
@@ -98,7 +98,7 @@ struct MenuDetailsView: View {
                                 .fontWeight(.semibold)
                                 
                         }
-                        Text(dish.name)
+                        Text(menu.name)
                             .commonFontStyles(18, Color.appBlack, .bold)
                     }
                 }
@@ -109,6 +109,6 @@ struct MenuDetailsView: View {
 
 #Preview {
     NavigationStack {
-        MenuDetailsView(dish: ViewModel().apetizerArray[1])
+        MenuDetailsView(menu: ViewModel().apetizerArray[1])
     }
 }
