@@ -19,12 +19,12 @@ struct MenuView: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
-                        .commonFontStyles(14.0, Color.appGray, .bold)
+                        .commonFontStyles(14.0, .bold)
                     RowMenuView(menuItems: apetizerArray)
                     
                     Text("Plats Principaux")
+                        .commonFontStyles(14.0, .bold)
                         .padding(.top, 12)
-                        .commonFontStyles(14.0, Color.appGray, .bold)
                     RowMenuView(menuItems: mainCourseArray)
                 }
                 .padding(.horizontal, 20)
@@ -93,16 +93,16 @@ struct RowMenuView: View {
                             .padding(.vertical, 12)
                         VStack(alignment: .leading) {
                             Text(dish.name)
-                                .commonFontStyles(14, Color.appGray, .semibold)
+                                .commonFontStyles(14, .semibold)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             Text(dish.description)
-                                .commonFontStyles(12, Color.appGray)
+                                .commonFontStyles(12)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             HStack {
                                 Text("\(dish.price, specifier: "%.2f") €")
-                                    .commonFontStyles(12, Color.appGray, .semibold)
+                                    .commonFontStyles(12, .semibold)
                                 Spacer()
                                 // Affichage du niveau d'épices avec une vue spécifique
                                 switch dish.spiceLevel {
@@ -141,7 +141,12 @@ private struct CommonFontStylesModifier: ViewModifier {
 }
 
 private extension View {
-    func commonFontStyles(_ size: CGFloat, _ color: Color, _ weight: Font.Weight? = nil) -> some View {
+
+    func commonFontStyles(_ size: CGFloat, _ weight: Font.Weight?) -> some View {
+        modifier(CommonFontStylesModifier(size: size, color: .appGray, weight: weight))
+    }
+
+    func commonFontStyles(_ size: CGFloat, _ color: Color = .appGray, _ weight: Font.Weight? = nil) -> some View {
         modifier(CommonFontStylesModifier(size: size, color: color, weight: weight))
     }
 }
@@ -151,3 +156,4 @@ private extension View {
         MenuView()
     }
 }
+
