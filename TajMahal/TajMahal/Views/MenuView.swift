@@ -108,13 +108,11 @@ struct RowMenuView: View {
                             Spacer()
                             Text(dish.description)
                                 .font(Font.DefaultFont(size: 12))
-                                .font(.subheadline)
                                 .foregroundStyle(Color.appGray)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             HStack {
                                 Text("\(dish.price, specifier: "%.2f") €")
-                                    .font(.caption)
                                     .foregroundStyle(Color.appGray)
                                     .font(Font.DefaultFont(size: 12))
                                     .fontWeight(.semibold)
