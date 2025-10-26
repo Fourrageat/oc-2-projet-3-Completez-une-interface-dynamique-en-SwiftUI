@@ -20,12 +20,12 @@ struct MenuView: View {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
                         .commonFontStyles(14.0, .bold)
-                    RowMenuView(menuItems: apetizerArray)
+                    RowMenuView(dishes: apetizerArray)
                     
                     Text("Plats Principaux")
                         .commonFontStyles(14.0, .bold)
                         .padding(.top, 12)
-                    RowMenuView(menuItems: mainCourseArray)
+                    RowMenuView(dishes: mainCourseArray)
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, {
@@ -73,18 +73,18 @@ struct MenuView: View {
 }
 
 struct RowMenuView: View {
-    let menuItems: [Dish]
+    let dishes: [Dish]
     
     var body: some View {
-        if menuItems.isEmpty {
+        if dishes.isEmpty {
             Text("Aucun plat trouvé.")
         } else {
-            ForEach(menuItems, id: \.name) { menu in
+            ForEach(dishes, id: \.name) { dish in
                 NavigationLink {
-                    MenuDetailsView(menu: menu)
+                    MenuDetailsView(dish: dish)
                 } label: {
                     HStack(spacing: 25) {
-                        Image(menu.imageName)
+                        Image(dish.imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 112, height: 86)
@@ -92,20 +92,20 @@ struct RowMenuView: View {
                             .padding(.leading, 11)
                             .padding(.vertical, 12)
                         VStack(alignment: .leading) {
-                            Text(menu.name)
+                            Text(dish.name)
                                 .commonFontStyles(14, .semibold)
                                 .multilineTextAlignment(.leading)
                             Spacer()
-                            Text(menu.description)
+                            Text(dish.description)
                                 .commonFontStyles(12)
                                 .multilineTextAlignment(.leading)
                             Spacer()
                             HStack {
-                                Text("\(menu.price, specifier: "%.2f") €")
+                                Text("\(dish.price, specifier: "%.2f") €")
                                     .commonFontStyles(12, .semibold)
                                 Spacer()
                                 // Affichage du niveau d'épices avec une vue spécifique
-                                switch menu.spiceLevel {
+                                switch dish.spiceLevel {
                                 case .hot:
                                     SpiceView(spiceLevel: 3, size: 12)
                                 case .medium:
