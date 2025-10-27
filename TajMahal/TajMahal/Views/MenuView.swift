@@ -111,11 +111,9 @@ struct RowMenuView: View {
                                 )
                             }
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.vertical, 12)
                         .padding(.trailing, 16)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white)
                     .cornerRadius(10)
                 }
