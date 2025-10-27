@@ -66,17 +66,18 @@ struct MenuDetailsView: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             if #available(iOS 26.0, *) {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(id: "Const ID") {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
                                 .foregroundStyle(Color.appBlack)
-                                .padding(.leading, -10)
                         }
                         Text(dish.name)
                             .commonFontStyles(18, Color.appBlack, .bold)
                             .fixedSize()
+                        Spacer()
                     }
+                    .padding(.leading, -10)
                 }
                 .sharedBackgroundVisibility(.hidden)
             } else {
@@ -99,6 +100,6 @@ struct MenuDetailsView: View {
 
 #Preview {
     NavigationStack {
-        MenuDetailsView(dish: ViewModel().apetizerArray[1])
+        MenuDetailsView(dish: ViewModel().mainCourseArray[0])
     }
 }
