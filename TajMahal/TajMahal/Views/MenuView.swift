@@ -104,15 +104,11 @@ struct RowMenuView: View {
                                 Text("\(dish.price, specifier: "%.2f") €")
                                     .commonFontStyles(12, .semibold)
                                 Spacer()
-                                // Affichage du niveau d'épices avec une vue spécifique
-                                switch dish.spiceLevel {
-                                case .hot:
-                                    SpiceView(spiceLevel: 3, size: 12)
-                                case .medium:
-                                    SpiceView(spiceLevel: 2, size: 12)
-                                case .light:
-                                    SpiceView(spiceLevel: 1, size: 12)
-                                }
+
+                                SpiceView(
+                                    spiceLevel: dish.spiceLevel,
+                                    size: 12
+                                )
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)

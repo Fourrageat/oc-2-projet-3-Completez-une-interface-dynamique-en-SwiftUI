@@ -28,16 +28,10 @@ struct MenuDetailsView: View {
                 VStack {
                     HStack {
                         Spacer()
-                        Group {
-                            switch dish.spiceLevel {
-                            case .hot:
-                                SpiceView(spiceLevel: 3, size: 14)
-                            case .medium:
-                                SpiceView(spiceLevel: 2, size: 14)
-                            case .light:
-                                SpiceView(spiceLevel: 1, size: 14)
-                            }
-                        }
+                        SpiceView(
+                            spiceLevel: dish.spiceLevel,
+                            size: 14
+                        )
                         .padding(.vertical, 4)
                         .padding(.horizontal, 8)
                         .background(Color.white)
@@ -69,10 +63,7 @@ struct MenuDetailsView: View {
                 return 12.0
             }
         }())
-        .padding(.bottom, 20)
-        .padding(.horizontal, 20)
-        .frame(maxHeight: .infinity, alignment: .top)
-        .navigationBarTitleDisplayMode(.inline)
+        .padding([.horizontal, .bottom], 20)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             if #available(iOS 26.0, *) {
