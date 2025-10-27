@@ -69,8 +69,6 @@ struct MenuView: View {
                 }
             }
         }
-        
-        .toolbarBackground(.visible , for: .navigationBar)
     }
 }
 
@@ -129,7 +127,6 @@ private struct CustomToolBarModifier: ViewModifier {
         content
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(Color.backgroundMenuScreenView, for: .navigationBar)
     }
 }
