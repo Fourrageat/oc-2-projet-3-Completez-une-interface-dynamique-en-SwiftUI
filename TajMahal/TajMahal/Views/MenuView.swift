@@ -37,9 +37,9 @@ struct MenuView: View {
                 }())
             }
             .background(Color.backgroundMenuScreenView)
+
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
+        .customToolBar()
         .toolbar {
             if #available(iOS 26.0, *) {
                 ToolbarItem(placement: .topBarLeading) {
@@ -69,6 +69,8 @@ struct MenuView: View {
                 }
             }
         }
+        
+        .toolbarBackground(.visible , for: .navigationBar)
     }
 }
 
@@ -119,6 +121,22 @@ struct RowMenuView: View {
                 }
             }
         }
+    }
+}
+
+private struct CustomToolBarModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(Color.backgroundMenuScreenView, for: .navigationBar)
+    }
+}
+
+private extension View {
+    func customToolBar() -> some View {
+        modifier(CustomToolBarModifier())
     }
 }
 
