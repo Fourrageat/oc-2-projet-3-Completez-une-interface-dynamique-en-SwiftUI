@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct WelcomeView: View {
@@ -24,27 +23,30 @@ struct WelcomeView: View {
                 }
                 .padding(.top, 32)
                 VStack(spacing: 14) {
-                    KeyValueRow(
+                    InfoRow(
                         icon: "Horaire",
-                        title: "Mardi",
+                        text: "Mardi",
                         value: "11h30 – 14h30 • 18h30 – 22h00"
                     )
-                    KeyValueRow(
+                    InfoRow(
                         icon: "Marmite",
-                        title: "Type de Service",
+                        text: "Type de Service",
                         value: "À emporter"
                     )
                     InfoRow(
                         icon: "Localisation",
-                        text: "12 Avenue de la Brique – 75010 Paris"
+                        text: "12 Avenue de la Brique – 75010 Paris",
+                        value: nil
                     )
                     InfoRow(
                         icon: "Site",
                         text: "www.tajmahal.fr",
+                        value: nil
                     )
                     InfoRow(
                         icon: "Téléphone",
                         text: "06 12 34 56 78",
+                        value: nil
                     )
                 }
                 .padding(.top, 32)
@@ -66,36 +68,21 @@ struct WelcomeView: View {
     }
 }
 
-struct KeyValueRow: View {
-    let icon: String
-    let title: String
-    let value: String
-
-    var body: some View {
-        HStack(alignment: .center, spacing: 10) {
-            Image(icon)
-            Text(title)
-                .commonFontStyles(12)
-
-            Spacer()
-            Text(value)
-                .commonFontStyles(12)
-                .multilineTextAlignment(.trailing)
-
-        }
-    }
-}
-
 struct InfoRow: View {
     let icon: String
     let text: String
+    let value: String?
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
             Image(icon)
             Text(text)
                 .commonFontStyles(12)
-            Spacer(minLength: 0)
+            Spacer()
+            if let value, !value.isEmpty {
+                Text(value)
+                    .commonFontStyles(12)
+            }
         }
     }
 }
