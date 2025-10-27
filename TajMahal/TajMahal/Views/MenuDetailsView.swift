@@ -40,7 +40,6 @@ struct MenuDetailsView: View {
                 }
                 .padding([.top, .trailing], 12)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             Text("Allergènes:")
                 .commonFontStyles(12, .semibold)
                 .padding(.top, 32)
