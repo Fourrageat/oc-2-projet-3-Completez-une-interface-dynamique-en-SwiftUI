@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A3281BC2EB0BC6900F0492A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3281BA2EB0BC6900F0492A /* Font.swift */; };
+		3A3281BD2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A3281BB2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf */; };
 		3A3DDF1A2EA872C900D16608 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DDF192EA872B100D16608 /* Styles.swift */; };
 		3AA4D7D02E8375ED001AFBD2 /* MenuDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4D7CF2E8375ED001AFBD2 /* MenuDetailsView.swift */; };
 		3AA4D7E02E8BD59B001AFBD2 /* SpiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4D7DF2E8BD592001AFBD2 /* SpiceView.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A3281BA2EB0BC6900F0492A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		3A3281BB2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Variable.ttf"; sourceTree = "<group>"; };
 		3A3DDF192EA872B100D16608 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3AA4D7CF2E8375ED001AFBD2 /* MenuDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailsView.swift; sourceTree = "<group>"; };
 		3AA4D7DF2E8BD592001AFBD2 /* SpiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceView.swift; sourceTree = "<group>"; };
@@ -34,10 +38,6 @@
 		42E9DCC12AF117AE007CE7D0 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		3ADF259B2EA86EF5006F0FF1 /* Font */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Font; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		42E9DCA72AF11136007CE7D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -49,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A3281BE2EB0D2A000F0492A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3A3281BA2EB0BC6900F0492A /* Font.swift */,
+				3A3281BB2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		42E9DCA12AF11136007CE7D0 = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +77,7 @@
 		42E9DCAC2AF11136007CE7D0 /* TajMahal */ = {
 			isa = PBXGroup;
 			children = (
-				3ADF259B2EA86EF5006F0FF1 /* Font */,
+				3A3281BE2EB0D2A000F0492A /* Font */,
 				42E9DCC02AF11662007CE7D0 /* Info.plist */,
 				42E9DCBB2AF113D1007CE7D0 /* Views */,
 				42E9DCAD2AF11136007CE7D0 /* TajMahalApp.swift */,
@@ -115,9 +124,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				3ADF259B2EA86EF5006F0FF1 /* Font */,
-			);
 			name = TajMahal;
 			productName = TajMahal;
 			productReference = 42E9DCAA2AF11136007CE7D0 /* TajMahal.app */;
@@ -161,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3281BD2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf in Resources */,
 				42E9DCB52AF11138007CE7D0 /* Preview Assets.xcassets in Resources */,
 				42E9DCB22AF11138007CE7D0 /* Assets.xcassets in Resources */,
 			);
@@ -178,6 +185,7 @@
 				3AA4D7D02E8375ED001AFBD2 /* MenuDetailsView.swift in Sources */,
 				3A3DDF1A2EA872C900D16608 /* Styles.swift in Sources */,
 				42E9DCC22AF117AE007CE7D0 /* MenuView.swift in Sources */,
+				3A3281BC2EB0BC6900F0492A /* Font.swift in Sources */,
 				3AA4D7E02E8BD59B001AFBD2 /* SpiceView.swift in Sources */,
 				42E9DCAE2AF11136007CE7D0 /* TajMahalApp.swift in Sources */,
 				428D2B512AFA851900BBA4F5 /* Model.swift in Sources */,
