@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Strcture qui gère toute la logique du code
+// Structure qui gère toute la logique du code
 // Fait l'intermédiaire entre l'affichage et les données
 struct ViewModel {
     

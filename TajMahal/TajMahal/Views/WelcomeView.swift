@@ -67,7 +67,7 @@ struct WelcomeView: View {
     }
 }
 
-// Vue affichant les information pratiques du restaurant
+// Vue affichant les informations pratiques du restaurant
 struct InfoRow: View {
     let icon: String
     let text: String

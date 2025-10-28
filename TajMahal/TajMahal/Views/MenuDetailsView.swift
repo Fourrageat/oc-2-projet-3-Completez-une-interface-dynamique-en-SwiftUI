@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-// Vue de détail d’un plat : affiche l’image, les informations
-// (allergènes, ingrédients) et gère la barre d’outils.
+// Vue de détail d’un plat : affiche l’image et les informations
+// (allergènes, ingrédients).
 struct MenuDetailsView: View {
     let dish: Dish
 
