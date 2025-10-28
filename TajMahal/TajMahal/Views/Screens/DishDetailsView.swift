@@ -9,7 +9,7 @@ import SwiftUI
 
 // Vue de détail d’un plat : affiche l’image et les informations
 // (allergènes, ingrédients).
-struct MenuDetailsView: View {
+struct DishDetailsView: View {
     let dish: Dish
 
     @Environment(\.dismiss) private var dismiss
@@ -106,6 +106,6 @@ struct MenuDetailsView: View {
 
 #Preview {
     NavigationStack {
-        MenuDetailsView(dish: ViewModel().mainCourseArray[0])
+        DishDetailsView(dish: ViewModel().mainCourseArray[0])
     }
 }
