@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+// Écran du menu : présente les entrées et plats principaux
 struct MenuView: View {
     let apetizerArray = ViewModel().apetizerArray
     let mainCourseArray = ViewModel().mainCourseArray
@@ -20,14 +20,16 @@ struct MenuView: View {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     Text("Entrées")
                         .commonFontStyles(14.0, .bold)
-                    RowMenuView(dishes: apetizerArray)
+                    RowDishView(dishes: apetizerArray) // Affiche la liste des entrées
                     
                     Text("Plats Principaux")
                         .commonFontStyles(14.0, .bold)
                         .padding(.top, 12)
-                    RowMenuView(dishes: mainCourseArray)
+                    RowDishView(dishes: mainCourseArray) // Affiche la liste des plats principaux
                 }
                 .padding(.horizontal, 20)
+                // Ajuste l’espace supérieur en fonction des changements
+                // de mise en page introduits sur iOS 26.
                 .padding(.top, {
                     if #available(iOS 26.0, *) {
                         return 6.0
@@ -37,9 +39,11 @@ struct MenuView: View {
                 }())
             }
             .background(Color.backgroundMenuScreenView)
-
         }
-        .customToolBar()
+        .customNavigationBar()
+        // Barre d’outils adaptée selon la version d’iOS : sur iOS 26+,
+        // on utilise la nouvelle API (sharedBackgroundVisibility et item),
+        // sinon on garde le placement classique.
         .toolbar {
             if #available(iOS 26.0, *) {
                 ToolbarItem(placement: .topBarLeading) {
@@ -60,7 +64,6 @@ struct MenuView: View {
                         Image(systemName: "chevron.left")
                             .foregroundStyle(Color.appBlack)
                             .fontWeight(.semibold)
-                        
                     }
                 }
                 ToolbarItem(placement: .principal) {
@@ -72,7 +75,8 @@ struct MenuView: View {
     }
 }
 
-struct RowMenuView: View {
+// Affiche ligne par ligne les plats donnés en paramètre
+struct RowDishView: View {
     let dishes: [Dish]
     
     var body: some View {
@@ -81,8 +85,12 @@ struct RowMenuView: View {
         } else {
             ForEach(dishes, id: \.name) { dish in
                 NavigationLink {
+                    // Navigation vers la page de details du plat (dish) de la boucle
+                    // MenuDetailsView attends un paramètre 'dish' qui est le plat de la boucle,
+                    // la vue en a besoin pour utiliser les informations du plat de la boucle
                     MenuDetailsView(dish: dish)
                 } label: {
+                    // Construction de la vue en utilisants les informations du plat de la boucle
                     HStack(spacing: 25) {
                         Image(dish.imageName)
                             .resizable()
@@ -122,7 +130,8 @@ struct RowMenuView: View {
     }
 }
 
-private struct CustomToolBarModifier: ViewModifier {
+// NavigationBar solide pour une compatibilité proche des os < iOS 26
+private struct CustomNavigationBarModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .navigationBarTitleDisplayMode(.inline)
@@ -132,8 +141,8 @@ private struct CustomToolBarModifier: ViewModifier {
 }
 
 private extension View {
-    func customToolBar() -> some View {
-        modifier(CustomToolBarModifier())
+    func customNavigationBar() -> some View {
+        modifier(CustomNavigationBarModifier())
     }
 }
 
@@ -142,4 +151,3 @@ private extension View {
         MenuView()
     }
 }
-

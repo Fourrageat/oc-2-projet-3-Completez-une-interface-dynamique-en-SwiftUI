@@ -1,5 +1,6 @@
 import SwiftUI
 
+// Vue d'accueil qui présente les informations du restaurant
 struct WelcomeView: View {
     var body: some View {
         NavigationStack {
@@ -7,7 +8,6 @@ struct WelcomeView: View {
                 Image("TajMahal")
                     .resizable()
                     .cornerRadius(10)
-
                 HStack() {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Restaurant Indien")
@@ -50,7 +50,6 @@ struct WelcomeView: View {
                     )
                 }
                 .padding(.top, 32)
-                
                 NavigationLink {
                     MenuView()
                 } label: {
@@ -68,10 +67,11 @@ struct WelcomeView: View {
     }
 }
 
+// Vue affichant les information pratiques du restaurant
 struct InfoRow: View {
     let icon: String
     let text: String
-    let value: String?
+    let value: String? // Paramètre optionnel
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {

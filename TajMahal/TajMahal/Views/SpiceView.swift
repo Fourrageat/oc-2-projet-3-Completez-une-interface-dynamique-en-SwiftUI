@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// Une vue SwiftUI qui affiche le niveau d'épices d'un plat sous forme de 3 icônes de piment.
+/// - Parameters:
+///   - spiceLevel: Le niveau d'épices à représenter (light, medium, hot).
+///   - size: La taille (largeur/hauteur) des icônes de piment en points.
 struct SpiceView: View {
     let spiceLevel: SpiceLevel
     let size: CGFloat
@@ -24,6 +28,8 @@ struct SpiceView: View {
 
     var body: some View {
         HStack(spacing: 8) {
+            // Affiche 3 icônes de piment : chaque index inférieur à
+            // spiceLevelInt est rouge, sinon l'icône est grise.
             ForEach(0..<3) { index in
                 Image(index < spiceLevelInt ? "piment-red" : "piment")
                     .resizable()

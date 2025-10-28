@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+// Vue de détail d’un plat : affiche l’image, les informations
+// (allergènes, ingrédients) et gère la barre d’outils.
 struct MenuDetailsView: View {
     let dish: Dish
+
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -24,7 +27,6 @@ struct MenuDetailsView: View {
                         )
                         .cornerRadius(10)
                 }
-
                 VStack {
                     HStack {
                         Spacer()
@@ -55,6 +57,8 @@ struct MenuDetailsView: View {
                 .commonFontStyles(12)
                 .padding(.top, 8)
         }
+        // Ajuste l’espace supérieur en fonction des changements
+        // de mise en page introduits sur iOS 26.
         .padding(.top, {
             if #available(iOS 26.0, *) {
                 return 6.0
@@ -64,6 +68,9 @@ struct MenuDetailsView: View {
         }())
         .padding([.horizontal, .bottom], 20)
         .navigationBarBackButtonHidden(true)
+        // Barre d’outils adaptée selon la version d’iOS : sur iOS 26+,
+        // on utilise la nouvelle API (sharedBackgroundVisibility et item
+        // sans placement explicite), sinon on garde le placement classique.
         .toolbar {
             if #available(iOS 26.0, *) {
                 ToolbarItem(id: "Const ID") {
@@ -87,7 +94,6 @@ struct MenuDetailsView: View {
                             Image(systemName: "chevron.left")
                                 .foregroundStyle(Color.appBlack)
                                 .fontWeight(.semibold)
-                                
                         }
                         Text(dish.name)
                             .commonFontStyles(18, Color.appBlack, .bold)
