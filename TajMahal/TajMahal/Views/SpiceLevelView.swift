@@ -11,7 +11,7 @@ import SwiftUI
 /// - Parameters:
 ///   - spiceLevel: Le niveau d'épices à représenter (light, medium, hot).
 ///   - size: La taille (largeur/hauteur) des icônes de piment en points.
-struct SpiceView: View {
+struct SpiceLevelView: View {
     let spiceLevel: SpiceLevel
     let size: CGFloat
     
@@ -44,7 +44,7 @@ struct SpiceView: View {
 
     VStack(alignment: .center, spacing: 40) {
         ForEach(levels, id: \.self) { level in
-            SpiceView(spiceLevel: level, size: 40)
+            SpiceLevelView(spiceLevel: level, size: 40)
         }
     }
 

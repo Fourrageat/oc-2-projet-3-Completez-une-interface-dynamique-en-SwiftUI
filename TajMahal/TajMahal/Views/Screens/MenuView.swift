@@ -113,7 +113,7 @@ struct RowDishView: View {
                                     .commonFontStyles(12, .semibold)
                                 Spacer()
 
-                                SpiceView(
+                                SpiceLevelView(
                                     spiceLevel: dish.spiceLevel,
                                     size: 12
                                 )

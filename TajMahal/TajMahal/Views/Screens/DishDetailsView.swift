@@ -30,7 +30,7 @@ struct DishDetailsView: View {
                 VStack {
                     HStack {
                         Spacer()
-                        SpiceView(
+                        SpiceLevelView(
                             spiceLevel: dish.spiceLevel,
                             size: 14
                         )
