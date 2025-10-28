@@ -38,3 +38,17 @@ struct SpiceView: View {
         }
     }
 }
+
+#Preview {
+    let levels: [SpiceLevel] = [.light, .medium, .hot]
+
+    VStack(alignment: .center, spacing: 40) {
+        ForEach(levels, id: \.self) { level in
+            SpiceView(spiceLevel: level, size: 40)
+        }
+    }
+
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .background(Color.black)
+    .ignoresSafeArea()
+}
