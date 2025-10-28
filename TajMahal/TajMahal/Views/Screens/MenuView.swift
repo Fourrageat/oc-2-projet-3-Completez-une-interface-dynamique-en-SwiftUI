@@ -86,11 +86,11 @@ struct RowDishView: View {
             ForEach(dishes, id: \.name) { dish in
                 NavigationLink {
                     // Navigation vers la page de details du plat (dish) de la boucle
-                    // MenuDetailsView attends un paramètre 'dish' qui est le plat de la boucle,
-                    // la vue en a besoin pour utiliser les informations du plat de la boucle
+                    // DishDetailsView attends un paramètre 'dish' qui est le plat de la boucle,
+                    // la vue en a besoin pour utiliser les informations du plat
                     DishDetailsView(dish: dish)
                 } label: {
-                    // Construction de la vue en utilisants les informations du plat de la boucle
+                    // Construction de la vue en utilisant les informations du plat de la boucle
                     HStack(spacing: 25) {
                         Image(dish.imageName)
                             .resizable()

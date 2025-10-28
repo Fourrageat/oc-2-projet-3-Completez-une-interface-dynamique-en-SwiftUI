@@ -1,5 +1,5 @@
 //
-//  ColorsStyles.swift
+//  Styles.swift
 //  TajMahal
 //
 //  Created by Baptiste FOURRAGEAT on 22/10/2025.

@@ -1,5 +1,5 @@
 //
-//  SpiceView.swift
+//  SpiceLevelView.swift
 //  TajMahal
 //
 //  Created by Baptiste FOURRAGEAT on 30/09/2025.

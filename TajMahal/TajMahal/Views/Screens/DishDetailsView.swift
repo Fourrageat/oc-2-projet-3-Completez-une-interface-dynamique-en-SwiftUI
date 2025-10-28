@@ -1,5 +1,5 @@
 //
-//  MenuDetailsView.swift
+//  DishDetailsView.swift
 //  TajMahal
 //
 //  Created by Baptiste FOURRAGEAT on 24/09/2025.
