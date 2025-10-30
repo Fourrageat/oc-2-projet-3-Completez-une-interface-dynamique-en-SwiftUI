@@ -31,7 +31,7 @@ struct SpiceLevelView: View {
             // Affiche 3 icônes de piment : chaque index inférieur à
             // spiceLevelInt est rouge, sinon l'icône est grise.
             ForEach(0..<3) { index in
-                Image(index < spiceLevelInt ? "piment-red" : "piment")
+                Image(index < spiceLevelInt ? "RedPiment" : "GrayPiment")
                     .resizable()
                     .frame(width: size, height: size)
             }

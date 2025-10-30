@@ -68,7 +68,6 @@ struct DishDetailsView: View {
         }())
         .padding([.horizontal, .bottom], 20)
         .navigationBarBackButtonHidden(true)
-        .background(Color("AppWhite"))
         // Barre d’outils adaptée selon la version d’iOS : sur iOS 26+,
         // on utilise la nouvelle API (sharedBackgroundVisibility et item
         // sans placement explicite), sinon on garde le placement classique.

@@ -63,7 +63,6 @@ struct WelcomeView: View {
                 .padding(.top, 32)
             }
             .padding(.horizontal, 20)
-            .background(Color("AppWhite"))
         }
     }
 }
