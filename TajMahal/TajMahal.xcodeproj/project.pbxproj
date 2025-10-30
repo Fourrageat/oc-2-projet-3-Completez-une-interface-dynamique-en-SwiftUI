@@ -10,6 +10,7 @@
 		3A3281BC2EB0BC6900F0492A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3281BA2EB0BC6900F0492A /* Font.swift */; };
 		3A3281BD2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A3281BB2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf */; };
 		3A3DDF1A2EA872C900D16608 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DDF192EA872B100D16608 /* Styles.swift */; };
+		3A9C64222EB3632A0061D2F8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9C64212EB3632A0061D2F8 /* Colors.xcassets */; };
 		3AA4D7D02E8375ED001AFBD2 /* DishDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4D7CF2E8375ED001AFBD2 /* DishDetailsView.swift */; };
 		3AA4D7E02E8BD59B001AFBD2 /* SpiceLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4D7DF2E8BD592001AFBD2 /* SpiceLevelView.swift */; };
 		428D2B512AFA851900BBA4F5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D2B502AFA851900BBA4F5 /* Model.swift */; };
@@ -25,6 +26,7 @@
 		3A3281BA2EB0BC6900F0492A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		3A3281BB2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlusJakartaSans-Variable.ttf"; sourceTree = "<group>"; };
 		3A3DDF192EA872B100D16608 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		3A9C64212EB3632A0061D2F8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3AA4D7CF2E8375ED001AFBD2 /* DishDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailsView.swift; sourceTree = "<group>"; };
 		3AA4D7DF2E8BD592001AFBD2 /* SpiceLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceLevelView.swift; sourceTree = "<group>"; };
 		428D2B502AFA851900BBA4F5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				42E9DCB12AF11138007CE7D0 /* Assets.xcassets */,
+				3A9C64212EB3632A0061D2F8 /* Colors.xcassets */,
 				42E9DCC02AF11662007CE7D0 /* Info.plist */,
 				42E9DCB32AF11138007CE7D0 /* Preview Content */,
 				42E9DCAD2AF11136007CE7D0 /* TajMahalApp.swift */,
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3281BD2EB0BC6900F0492A /* PlusJakartaSans-Variable.ttf in Resources */,
+				3A9C64222EB3632A0061D2F8 /* Colors.xcassets in Resources */,
 				42E9DCB52AF11138007CE7D0 /* Preview Assets.xcassets in Resources */,
 				42E9DCB22AF11138007CE7D0 /* Assets.xcassets in Resources */,
 			);

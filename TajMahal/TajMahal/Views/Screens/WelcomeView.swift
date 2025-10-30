@@ -14,7 +14,7 @@ struct WelcomeView: View {
                             .commonFontStyles(12)
 
                         Text("Taj Mahal")
-                            .commonFontStyles(18, Color.appBlack, .bold)
+                            .commonFontStyles(18, Color("AppBlack"), .bold)
                             .padding(.top, 2)
                     }
                     Spacer()
@@ -57,12 +57,13 @@ struct WelcomeView: View {
                         .commonFontStyles(16, Color.white, .bold)
                         .frame(maxWidth: .infinity)
                         .frame(height: 40)
-                        .background(Color.appRed)
+                        .background(Color("AppRed"))
                         .cornerRadius(10)
                 }
                 .padding(.top, 32)
             }
             .padding(.horizontal, 20)
+            .background(Color("AppWhite"))
         }
     }
 }

@@ -68,6 +68,7 @@ struct DishDetailsView: View {
         }())
         .padding([.horizontal, .bottom], 20)
         .navigationBarBackButtonHidden(true)
+        .background(Color("AppWhite"))
         // Barre d’outils adaptée selon la version d’iOS : sur iOS 26+,
         // on utilise la nouvelle API (sharedBackgroundVisibility et item
         // sans placement explicite), sinon on garde le placement classique.
@@ -77,10 +78,10 @@ struct DishDetailsView: View {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
-                                .foregroundStyle(Color.appBlack)
+                                .foregroundStyle(Color("AppBlack"))
                         }
                         Text(dish.name)
-                            .commonFontStyles(18, Color.appBlack, .bold)
+                            .commonFontStyles(18, Color("AppBlack"), .bold)
                             .fixedSize()
                         Spacer()
                     }
@@ -92,11 +93,11 @@ struct DishDetailsView: View {
                     HStack {
                         Button(action: { dismiss() }) {
                             Image(systemName: "chevron.left")
-                                .foregroundStyle(Color.appBlack)
+                                .foregroundStyle(Color("AppBlack"))
                                 .fontWeight(.semibold)
                         }
                         Text(dish.name)
-                            .commonFontStyles(18, Color.appBlack, .bold)
+                            .commonFontStyles(18, Color("AppBlack"), .bold)
                     }
                 }
             }

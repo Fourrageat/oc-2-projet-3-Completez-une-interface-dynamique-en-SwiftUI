@@ -38,7 +38,7 @@ struct MenuView: View {
                     }
                 }())
             }
-            .background(Color.backgroundMenuScreenView)
+            .background(Color("ScreenMenuBackground"))
         }
         .customNavigationBar()
         // Barre d’outils adaptée selon la version d’iOS : sur iOS 26+,
@@ -49,26 +49,26 @@ struct MenuView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
-                            .foregroundStyle(Color.appBlack)
+                            .foregroundStyle(Color("AppBlack"))
                             .padding(.leading, -20)
                     }
                 }
                 .sharedBackgroundVisibility(.hidden)
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .commonFontStyles(18.0, Color.appBlack, .bold)
+                        .commonFontStyles(18.0, Color("AppBlack"), .bold)
                 }
             } else {
                 ToolbarItem(placement: .topBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "chevron.left")
-                            .foregroundStyle(Color.appBlack)
+                            .foregroundStyle(Color("AppBlack"))
                             .fontWeight(.semibold)
                     }
                 }
                 ToolbarItem(placement: .principal) {
                     Text("Menu")
-                        .commonFontStyles(18.0, Color.appBlack, .bold)
+                        .commonFontStyles(18.0, Color("AppBlack"), .bold)
                 }
             }
         }
@@ -136,7 +136,7 @@ private struct CustomNavigationBarModifier: ViewModifier {
         content
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbarBackground(Color.backgroundMenuScreenView, for: .navigationBar)
+            .toolbarBackground(Color("ScreenMenuBackground"), for: .navigationBar)
     }
 }
 
