@@ -115,7 +115,7 @@ struct RowDishView: View {
 
                                 SpiceLevelView(
                                     spiceLevel: dish.spiceLevel,
-                                    size: 12
+                                    size: .small
                                 )
                             }
                         }

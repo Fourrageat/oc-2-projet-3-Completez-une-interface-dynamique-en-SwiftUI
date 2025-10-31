@@ -8,11 +8,22 @@
 import Foundation
 import SwiftUI
 
-// Cette enumération répertorie 3 niveaux de piment
-enum SpiceLevel {
-    case light
-    case medium
-    case hot
+// Cette énumération répertorie 3 niveaux de piment
+enum SpiceLevel: Int {
+    case light = 1
+    case medium = 2
+    case hot = 3
+}
+
+// Cette énumération permet de différencier 3 tailles différentes de l'image des piments
+enum PimentSize: CGFloat {
+    case small = 12, medium = 14, big = 40
+}
+
+// Cette énumération permet de choisir la couleur de l'image du piment
+enum PimentColor: String {
+    case hard = "RedPiment"
+    case soft = "GrayPiment"
 }
 
 // Représente l'objet "plat", qui figure sur la carte du menu

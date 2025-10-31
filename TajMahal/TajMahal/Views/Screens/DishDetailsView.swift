@@ -32,7 +32,7 @@ struct DishDetailsView: View {
                         Spacer()
                         SpiceLevelView(
                             spiceLevel: dish.spiceLevel,
-                            size: 14
+                            size: .medium
                         )
                         .padding(.vertical, 4)
                         .padding(.horizontal, 8)

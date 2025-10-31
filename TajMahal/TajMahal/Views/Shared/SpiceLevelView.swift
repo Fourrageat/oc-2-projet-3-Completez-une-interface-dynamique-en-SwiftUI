@@ -13,27 +13,20 @@ import SwiftUI
 ///   - size: La taille (largeur/hauteur) des icônes de piment en points.
 struct SpiceLevelView: View {
     let spiceLevel: SpiceLevel
-    let size: CGFloat
-    
-    var spiceLevelInt: Int {
-        switch spiceLevel {
-        case .hot:
-            return 3
-        case .medium:
-            return 2
-        case .light:
-            return 1
-        }
-    }
+    let size: PimentSize
 
     var body: some View {
         HStack(spacing: 8) {
             // Affiche 3 icônes de piment : chaque index inférieur à
             // spiceLevelInt est rouge, sinon l'icône est grise.
             ForEach(0..<3) { index in
-                Image(index < spiceLevelInt ? "RedPiment" : "GrayPiment")
-                    .resizable()
-                    .frame(width: size, height: size)
+                Image(
+                    index < spiceLevel.rawValue
+                    ? PimentColor.hard.rawValue
+                    : PimentColor.soft.rawValue
+                )
+                .resizable()
+                .frame(width: size.rawValue, height: size.rawValue)
             }
         }
     }
@@ -44,7 +37,7 @@ struct SpiceLevelView: View {
 
     VStack(alignment: .center, spacing: 40) {
         ForEach(levels, id: \.self) { level in
-            SpiceLevelView(spiceLevel: level, size: 40)
+            SpiceLevelView(spiceLevel: level, size: PimentSize.big)
         }
     }
 
