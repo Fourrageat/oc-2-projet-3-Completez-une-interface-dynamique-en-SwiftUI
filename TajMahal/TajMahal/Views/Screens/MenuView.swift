@@ -9,8 +9,8 @@ import SwiftUI
 
 // Écran du menu : présente les entrées et plats principaux
 struct MenuView: View {
-    let apetizerArray = ViewModel().apetizerArray
-    let mainCourseArray = ViewModel().mainCourseArray
+    private let apetizerArray = ViewModel().apetizerArray
+    private let mainCourseArray = ViewModel().mainCourseArray
 
     @Environment(\.dismiss) private var dismiss
 
@@ -76,8 +76,8 @@ struct MenuView: View {
 }
 
 // Affiche ligne par ligne les plats donnés en paramètre
-struct RowDishView: View {
-    let dishes: [Dish]
+private struct RowDishView: View {
+    fileprivate let dishes: [Dish]
     
     var body: some View {
         if dishes.isEmpty {

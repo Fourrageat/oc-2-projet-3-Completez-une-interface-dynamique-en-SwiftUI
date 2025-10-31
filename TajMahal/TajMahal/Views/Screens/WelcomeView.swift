@@ -68,10 +68,10 @@ struct WelcomeView: View {
 }
 
 // Vue affichant les informations pratiques du restaurant
-struct InfoRow: View {
-    let icon: String
-    let text: String
-    let value: String? // Paramètre optionnel
+private struct InfoRow: View {
+    fileprivate let icon: String
+    fileprivate let text: String
+    fileprivate let value: String? // Paramètre optionnel, peut etre nul
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
