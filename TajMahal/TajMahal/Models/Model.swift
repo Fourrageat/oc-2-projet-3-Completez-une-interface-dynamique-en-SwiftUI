@@ -11,8 +11,8 @@ import SwiftUI
 // Cette énumération répertorie 3 niveaux de piment
 enum SpiceLevel: Int {
     case light = 1
-    case medium = 2
-    case hot = 3
+    case medium
+    case hot
 }
 
 // Cette énumération permet de différencier 3 tailles différentes de l'image des piments
