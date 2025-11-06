@@ -129,6 +129,7 @@ private struct RowDishView: View {
         }
     }
 }
+// Toto
 
 // NavigationBar solide pour une compatibilité proche des os < iOS 26
 private struct CustomNavigationBarModifier: ViewModifier {
